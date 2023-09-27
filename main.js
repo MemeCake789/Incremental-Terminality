@@ -26,15 +26,15 @@ $('body').terminal({
         this.echo(startMessages[Math.floor((Math.random() * 3) + 1)]);
         points ++
             
-        this.echo(`added 1 point, total points: ${points}`);
+        this.echo(`added [[b;#03fc03;#0e0e0e]1] point, total points: [[b;#03fc03;#0e0e0e]${points}] `);
     },
 
     help: function () {
-        this.echo('iam - iam command and '
-        + 'pass your name as argument\n'
-        + 'founder to know the founder');
+        this.echo(
+        '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some points.\n'
+        + '[[b;#03fc03;#0e0e0e]help] - view help commands');
     },
 }, {
-    greetings: 'Hello World!'
+    greetings: greetings.innerHTML + "[[b;blue;#0e0e0e]Hello!] Welcome to my [[b;blue;#0e0e0e]incremental game!] \n    To start, type [[b;blue;#0e0e0e]help] on the command line\n"
 });
 
