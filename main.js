@@ -5,8 +5,14 @@ $('body').terminal({
         this.echo('Hello, ' + name +
             '. Welcome to GeeksForGeeks');
     },
-    founder: function () {
-        this.echo('Sandeep Jain');
+    test: function () {
+        this.echo("[[b;red;#0e0e0e]  red  ]")
+        this.echo("[[b;orange;#0e0e0e]  orange  ]")
+        this.echo("[[b;yellow;#0e0e0e]  yellow  ]")
+        this.echo("[[b;green;#0e0e0e]  green  ]")
+        this.echo("[[b;blue;#0e0e0e]  blue  ]")
+        this.echo("[[b;purple;#0e0e0e]  purple  ]")
+        this.echo("[[b;white;#0e0e0e]  white  ]")
     },
 
     learn: function(){
