@@ -35,8 +35,6 @@ $('body').terminal({
         + 'founder to know the founder');
     },
 }, {
-    greetings: 'GeeksForGeeks - A place to'
-        + ' learn DS, Algo and Computer '
-        + 'Science for free'
+    greetings: 'Hello World!'
 });
 
