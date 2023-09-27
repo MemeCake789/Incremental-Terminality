@@ -6,6 +6,7 @@ $('body').terminal({
             '. Welcome to GeeksForGeeks');
     },
     test: function () {
+        // https://terminal.jcubic.pl/api_reference.php#instance_methods
         this.echo("[[b;red;#0e0e0e]  red  ]")
         this.echo("[[b;orange;#0e0e0e]  orange  ]")
         this.echo("[[b;yellow;#0e0e0e]  yellow  ]")
