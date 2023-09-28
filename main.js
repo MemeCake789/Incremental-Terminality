@@ -6,7 +6,6 @@ $('body').terminal({
             '. Welcome to GeeksForGeeks');
     },
     test: function () {
-        // https://terminal.jcubic.pl/api_reference.php#instance_methods
         this.echo("[[b;red;#0e0e0e]  red  ]")
         this.echo("[[b;orange;#0e0e0e]  orange  ]")
         this.echo("[[b;yellow;#0e0e0e]  yellow  ]")
@@ -16,17 +15,33 @@ $('body').terminal({
         this.echo("[[b;white;#0e0e0e]  white  ]")
     },
 
-    learn: function(){
-        startMessages = [
-            "You look up a youtube tutorial on how to do hacking, but you give up after seeing a 124 hour long, 323 episode playlist. ", 
-            "You opened up the terminal and type help, ", 
-            "You look up a terminal simulator and start mashing random buttons on your keyboard. ``im such a hacker``, you say.",
-            "You open up VScode and blank out not knowing what to do"]
-        
-        this.echo(startMessages[Math.floor((Math.random() * 3) + 1)]);
-        points ++
-            
-        this.echo(`added [[b;#03fc03;#0e0e0e]1] point, total points: [[b;#03fc03;#0e0e0e]${points}] `);
+    learn: function() {
+        var animationFrames = [
+            "Frame 1",
+            "Frame 2",
+            "Frame 3",
+            ""// always have the last frame blank so it can show the full animaion
+        ];
+
+        var animationSpeed = 500; // Speed of animation in milliseconds
+
+        var currentIndex = 0;
+
+        this.disable(); // disables input line
+
+        var animationInterval = setInterval(() => {
+            var lastLineIndex = this.last_index(); // Get the index of the last line
+            this.set_prompt(animationFrames[currentIndex]); // Replace the content of the current line
+            currentIndex++;
+
+            if (currentIndex === animationFrames.length) {
+                clearInterval(animationInterval);
+                points++;
+                this.echo(`Added 1 point, total points: ${points}`);
+                this.set_prompt(">");
+                this.enable(); // enables input line
+            }
+        }, animationSpeed);
     },
 
     help: function () {
