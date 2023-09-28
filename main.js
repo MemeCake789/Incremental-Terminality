@@ -1,4 +1,4 @@
-var points = 0;
+var intelligence = 0;
 
 $('#terminal').terminal({
 
@@ -20,7 +20,25 @@ $('#terminal').terminal({
 
     learn: function() {
         var animationFrames = [
-            "[000000000]","[X00000000]","[XX0000000]","[XXX000000]","[XXXX00000]",""
+        
+            // oh my goodness gracious thats alot of fortmating
+
+            "learning: [[[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
+            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]"
+            
+            
         ];
 
         var animationSpeed = 100; // Speed of animation in milliseconds
@@ -36,8 +54,8 @@ $('#terminal').terminal({
 
             if (currentIndex === animationFrames.length) {
                 clearInterval(animationInterval);
-                points++;
-                this.echo(`Added [[b;#11ff00;#0e0e0e]1] point, total points:[[b;#11ff00;#0e0e0e] ${points}]`);
+                intelligence++;
+                this.echo(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`);
                 this.set_prompt(">");
                 this.enable(); // enables input line
             }
@@ -46,7 +64,7 @@ $('#terminal').terminal({
 
     help: function () {
         this.echo(
-        '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some points.\n'
+        '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
         + '[[b;#03fc03;#0e0e0e]help] - view help commands');
     },
 
@@ -63,6 +81,12 @@ $(function() {
     var frameInterval = 123.67; // 60 frames per second
   
     function gameLoop() {
+        /*
+        $('#terminal').terminal().echo(new $.terminal.FramesAnimation([
+            [""]
+        ], 8));
+        */
+
       // Code to run every frame
        //$('#terminal').terminal().echo('Running game loop...'); <- try to avoid echoing statments to the game loop
       // Call the game loop again for the next frame
@@ -70,8 +94,8 @@ $(function() {
 
       // UPGRADE CHECKS
 
-      if (points > 5){
-        $('#terminal').terminal().echo('got 5 points!');
+      if (intelligence > 5){
+        $('#terminal').terminal().echo('got 5 intelligence!');
       }
       setTimeout(gameLoop, frameInterval);
     }
