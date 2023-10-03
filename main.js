@@ -2,27 +2,42 @@
 
     TODO:
     
-    ■ develop upgrade sytem
+    ■ develop upgrade sytem DONE
         └ figure out how to check if intelengence is 5 and execute some code
     
     ■ find out how to print ascii art in 1 echo statement ( make a function if neccacary )
 
-    ■ attempt to use a color libary so printing something dosent look so confusing
+    ■ attempt to use a color libary so printing something dosent look so confusing DONE
 
 */
 
 var intelligence = 0;
 
+
+
 $('#terminal').terminal({
 
-    
-    
+
+
 
     iam: function (name) {
         this.echo('Hello, ' + name +
             '. Welcome to GeeksForGeeks');
     },
     test: function () {
+
+        function printStyledMessage(message, tag, className, type) { // type = 1- echo|type = 2- set prompt
+            var styledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
+            if ( type === 1 ){
+                $('#terminal').terminal().echo(styledMessage);
+            } else if ( type === 2){
+                $('#terminal').terminal().set_prompt(styledMessage);
+            }
+        }
+
+        printStyledMessage('hello world', "h1", "test",1)
+        var testMessage = $('<h1 class="test">Hello World</h1>') 
+        this.echo(testMessage);
         this.echo("╔═════════════════════════════════╗")
         this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
         this.echo("╚═════════════════════════════════╝")
@@ -34,65 +49,85 @@ $('#terminal').terminal({
         this.echo("[[b;blue;#0e0e0e]  blue  ]")
         this.echo("[[b;purple;#0e0e0e]  purple  ]")
         this.echo("[[b;white;#0e0e0e]  white  ]")
+
     },
-
     learn: function() {
-        var animationFrames = [
+        function echoStyledMessage(message, tag, className) { // type = 1- echo | type = 2- set prompt
+            // echo statements can use css tags, set_prompt
         
-            // oh my goodness gracious thats alot of fortmating
+                var styledMessage = `<${tag} class="${className}">${message}</${tag}>`
+                $('#terminal').terminal().echo(styledMessage);
+        
+                /*  for prompt
+                var styledMessage = `[[;${format};${color};${background_color};]${message}]`;
+                $('#terminal').terminal().set_prompt(() => styledMessage);
+                */
+        }
+        
+        function promptStyledMessage(format,color,background_color,message){
+            var styledMessage = `[[;${format};${color};${background_color};]${message}]`;
+            $('#terminal').terminal().set_prompt(() => styledMessage);
+        }
 
-            "learning: [[[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#003d09;#0e0e0e]■]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]",
-            "learning: [[[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█][[b;#00ff26;#0e0e0e]█]]"
-            
-            
+
+        const animationFrames = [
+            "Learning: ▌          ▐ 00%",
+            "Learning: ▌▒         ▐ 05%",
+            "Learning: ▌█         ▐ 10%",
+            "Learning: ▌█▒        ▐ 15%",
+            "Learning: ▌██        ▐ 20%",
+            "Learning: ▌██▒       ▐ 25%",
+            "Learning: ▌███       ▐ 30%",
+            "Learning: ▌███▒      ▐ 35%",
+            "Learning: ▌████      ▐ 40%",
+            "Learning: ▌████▒     ▐ 45%",
+            "Learning: ▌█████     ▐ 50%",
+            "Learning: ▌█████▒    ▐ 55%",
+            "Learning: ▌██████    ▐ 60%",
+            "Learning: ▌██████▒   ▐ 65%",
+            "Learning: ▌███████   ▐ 70%",
+            "Learning: ▌███████▒  ▐ 75%",
+            "Learning: ▌████████  ▐ 80%",
+            "Learning: ▌████████▒ ▐ 85%",
+            "Learning: ▌█████████ ▐ 90%",
+            "Learning: ▌█████████▒▐ 95%",
+            "Learning: ▌██████████▐ 100%",
+            "Learning: ▌██████████▐ 100%",
+            "Learning: ▌██████████▐ 100%",
+            "Learning: ▌██████████▐ 100%",
+            "Learning: ▌██████████▐ 100%",
+
         ];
-
-        var animationSpeed = 100; // Speed of animation in milliseconds
-
-        var currentIndex = 0;
-
+    
+        const animationSpeed = 75; // Speed of animation in milliseconds
+        let currentIndex = 0;
+    
         this.disable(); // disables input line
-
-        var animationInterval = setInterval(() => {
-            var lastLineIndex = this.last_index(); // Get the index of the last line
-            this.set_prompt(animationFrames[currentIndex]); // Replace the content of the current line
-            currentIndex++;
-
+    
+        const animationInterval = setInterval(() => {
             if (currentIndex === animationFrames.length) {
                 clearInterval(animationInterval);
                 intelligence++;
                 this.echo(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`);
                 this.set_prompt(">");
                 this.enable();
-                multiPrint(34,52,52,35,234)
-                checkForUpgrades();
-
-                
-            }
-
-            checkForLearnUpgrades = function(){
-                if(intelligence > 5){
-                    this.echo('Learn Lvl 2 upgrade');
+    
+                if (intelligence === 4) {
+                    this.echo("╔═════════════════════════════════╗")
+                    this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
+                    this.echo("╚═════════════════════════════════╝")
                 }
+    
+                this.scrollToBottom();
+                return;
             }
-            
+    
+            this.set_prompt(printStyledMessage(animationFrames[currentIndex],)); // Replace the content of the current line
+            currentIndex++;
         }, animationSpeed);
-
-
     },
     
+
     help: function () {
         this.echo(
         '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
@@ -109,17 +144,10 @@ $('#terminal').terminal({
 });
 
  
-function multiPrint(lines){
-    var index = 0;
-    for (let i = 0; i < lines.length; i++){
-        this.echo(lines[index])
-        index++
-    }
-}
+
 $(function() {
-    var frameInterval = 123.67; // 60 frames per second
-  
-    function gameLoop() {
+    var frameInterval = 120 * 1000 // sends a tip every 2 min
+    function tips() {
         /*
         $('#terminal').terminal().echo(new $.terminal.FramesAnimation([
             [""]
@@ -129,23 +157,16 @@ $(function() {
       // Code to run every frame
        //$('#terminal').terminal().echo('Running game loop...'); <- try to avoid echoing statments to the game loop
       // Call the game loop again for the next frame
-
-
-      // UPGRADE CHECKS
-
-
-      setTimeout(gameLoop, frameInterval);
-    }
-    
-    function tips(){
-        var tips = [
-            "[[b;#004f15;#deffe7] Tip ■ use the up ( ▲ ) or down ( ▼ ) keys to view your message history. ]"
-        ]
+      var tips = [
+        "[[b;#0d1c0e;#ffffff] Tip ■ use the up ( ▲ ) or down ( ▼ ) keys to view your message history. ]"
+    ]
 
         $('#terminal').terminal().echo(tips[0]);
 
-        setTimeout(tips,100)
+        setTimeout(gameLoop, frameInterval);
     }
+    
+
     // Start the game loop
     tips();
     

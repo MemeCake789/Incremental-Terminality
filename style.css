@@ -1,6 +1,8 @@
 .terminal, .cmd {
     background: rgb(14, 14, 14);
     color: #0f0;
+    font-family: 'JetBrains Mono', monospace; /* why does this font not apply */
+    
 }
 .terminal .inverted, .cmd .inverted, .cmd .cursor.blink {
     background-color: #0f0;
@@ -51,4 +53,10 @@
 
 body{
     background-color: rgb(14, 14, 14);
+}
+
+.test{
+    color: #1500ff;
+    font-size: 15px;
+    font-family: 'JetBrains Mono', monospace;
 }
