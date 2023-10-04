@@ -12,30 +12,65 @@
 */
 
 var intelligence = 0;
-
+var upgrades = [
+    ["▌ Learn Level 2 ▌", "Improves learning methods. ▌", "Needs: 5 intelligence ▌", "Buy Code: [2VWA] ▌"]
+]
 
 
 $('#terminal').terminal({
+    askName: function() {
+        var term = this;
+        term.read('What is your name? ').then(function(name) {
+            term.echo('Hello, ' + name + '!');
+        });
+    },
 
+    upgrades: function() {
+        function echoStyledMessage(message, tag, className) { 
+        
+            var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
+            $('#terminal').terminal().echo(echoStyledMessage);
+        
+        }
+        
+        function promptStyledMessage(format,color,background_color,message){
 
+            var promptStyledMessage = `[[${format};${color};${background_color}]${message}]`;
+            $('#terminal').terminal().set_prompt(() => promptStyledMessage);
 
+        }
+        
+        for (var i = 0; i < upgrades.length; i++) {
+            echoStyledMessage(upgrades[i].join(' '),"p","test"); // shows all messages
+        }
+
+        
+        this.read('Enter a buy code to purchase (case sensitive): ').then((code)=>{
+            if (code === "2VWA"){
+                this.echo("ok");
+            } else{
+                echoStyledMessage("Cannot find that product!","p","test")
+            }
+        });
+    },
 
     iam: function (name) {
         this.echo('Hello, ' + name +
             '. Welcome to GeeksForGeeks');
     },
     test: function () {
-
-        function printStyledMessage(message, tag, className, type) { // type = 1- echo|type = 2- set prompt
+        /*
+        function printStyledMessage(message, tag, className) { // type = 1- echo|type = 2- set prompt
             var styledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
             if ( type === 1 ){
                 $('#terminal').terminal().echo(styledMessage);
             } else if ( type === 2){
                 $('#terminal').terminal().set_prompt(styledMessage);
             }
-        }
+        } 
+        */ 
 
-        printStyledMessage('hello world', "h1", "test",1)
+        printStyledMessage('hello world', "h1", "test")
         var testMessage = $('<h1 class="test">Hello World</h1>') 
         this.echo(testMessage);
         this.echo("╔═════════════════════════════════╗")
@@ -52,21 +87,18 @@ $('#terminal').terminal({
 
     },
     learn: function() {
-        function echoStyledMessage(message, tag, className) { // type = 1- echo | type = 2- set prompt
-            // echo statements can use css tags, set_prompt
+        function echoStyledMessage(message, tag, className) { 
         
-                var styledMessage = `<${tag} class="${className}">${message}</${tag}>`
-                $('#terminal').terminal().echo(styledMessage);
+            var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
+            $('#terminal').terminal().echo(echoStyledMessage);
         
-                /*  for prompt
-                var styledMessage = `[[;${format};${color};${background_color};]${message}]`;
-                $('#terminal').terminal().set_prompt(() => styledMessage);
-                */
         }
         
         function promptStyledMessage(format,color,background_color,message){
-            var styledMessage = `[[;${format};${color};${background_color};]${message}]`;
-            $('#terminal').terminal().set_prompt(() => styledMessage);
+
+            var promptStyledMessage = `[[${format};${color};${background_color}]${message}]`;
+            $('#terminal').terminal().set_prompt(() => promptStyledMessage);
+
         }
 
 
@@ -112,19 +144,23 @@ $('#terminal').terminal({
                 this.set_prompt(">");
                 this.enable();
     
-                if (intelligence === 4) {
+                if (intelligence === 2) {
                     this.echo("╔═════════════════════════════════╗")
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
                     this.echo("╚═════════════════════════════════╝")
+                    echoStyledMessage("You unlocked your first upgrade! to view upgrades," + " type upgrade into your input line to view upgrades!" ,"p","test")
+                    
                 }
     
                 this.scrollToBottom();
                 return;
             }
     
-            this.set_prompt(printStyledMessage(animationFrames[currentIndex],)); // Replace the content of the current line
+            promptStyledMessage("b","#11ff00","#0e0e0e", animationFrames[currentIndex]); // Replace the content of the current line
             currentIndex++;
         }, animationSpeed);
+
+        
     },
     
 

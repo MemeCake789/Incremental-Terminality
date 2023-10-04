@@ -8,6 +8,10 @@
     background-color: #0f0;
     color: rgb(14, 14, 14);
 }
+
+.cursor{
+    animation: terminal-blink 1s infinite;
+}
 @-webkit-keyframes terminal-blink {
   0%, 100% {
       background-color: rgb(14, 14, 14);
@@ -57,6 +61,4 @@ body{
 
 .test{
     color: #1500ff;
-    font-size: 15px;
-    font-family: 'JetBrains Mono', monospace;
 }
