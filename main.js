@@ -2,12 +2,9 @@
 
     TODO:
     
-    ■ develop upgrade sytem DONE
-        └ figure out how to check if intelengence is 5 and execute some code
+
     
     ■ find out how to print ascii art in 1 echo statement ( make a function if neccacary )
-
-    ■ attempt to use a color libary so printing something dosent look so confusing DONE
 
 */
 
@@ -16,27 +13,29 @@ var upgrades = [
     ["▌ Learn Level 2 ▌", "Improves learning methods. ▌", "Needs: 5 intelligence ▌", "Buy Code: [2VWA] ▌"]
 ]
 
+var statements = [
+	"[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.",'[[b;#03fc03;#0e0e0e]help] - view help commands'
+];
+
+function echoStyledMessage(message, tag, className) {         
+	var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
+	$('#terminal').terminal().echo(echoStyledMessage);      
+}
+        
+function promptStyledMessage(format,color,background_color,message){
+	var promptStyledMessage = `[[${format};${color};${background_color}]${message}]`;
+	$('#terminal').terminal().set_prompt(() => promptStyledMessage);
+}
+//(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`
 
 $('#terminal').terminal({
 
 
     upgrades: function() {
-        function echoStyledMessage(message, tag, className) { 
-        
-            var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
-            $('#terminal').terminal().echo(echoStyledMessage);
-        
-        }
-        
-        function promptStyledMessage(format,color,background_color,message){
-
-            var promptStyledMessage = `[[${format};${color};${background_color}]${message}]`;
-            $('#terminal').terminal().set_prompt(() => promptStyledMessage);
-
-        }
+       
         
         for (var i = 0; i < upgrades.length; i++) {
-            echoStyledMessage(upgrades[i].join(' '),"p","test"); // shows all messages
+            echoStyledMessage(upgrades[i].join(' '),"p","note"); // shows all messages
         }
 
         
@@ -44,7 +43,7 @@ $('#terminal').terminal({
             if (code === "2VWA"){
                 this.echo("ok");
             } else{
-                echoStyledMessage("Cannot find that product!","p","test")
+                echoStyledMessage("Cannot find that product!","p","note")
             }
         });
     },
@@ -66,7 +65,7 @@ $('#terminal').terminal({
         */ 
 
 
-        this.echo("testForReplit") // just to see if relpit works
+        this.echo("noteForReplit") // just to see if relpit works
         this.echo("╔═════════════════════════════════╗")
         this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
         this.echo("╚═════════════════════════════════╝")
@@ -81,22 +80,10 @@ $('#terminal').terminal({
 
     },
     learn: function() {
-        function echoStyledMessage(message, tag, className) { 
-        
-            var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
-            $('#terminal').terminal().echo(echoStyledMessage);
-        
-        }
-        
-        function promptStyledMessage(format,color,background_color,message){
-
-            var promptStyledMessage = `[[${format};${color};${background_color}]${message}]`;
-            $('#terminal').terminal().set_prompt(() => promptStyledMessage);
-
-        }
 
 
-        const animationFrames = [
+
+        const learnFrames = [
             "Learning: ▌          ▐ 00%",
             "Learning: ▌▒         ▐ 05%",
             "Learning: ▌█         ▐ 10%",
@@ -131,7 +118,7 @@ $('#terminal').terminal({
         this.disable(); // disables input line
     
         const animationInterval = setInterval(() => {
-            if (currentIndex === animationFrames.length) {
+            if (currentIndex === learnFrames.length) {
                 clearInterval(animationInterval);
                 intelligence++;
                 this.echo(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`);
@@ -142,7 +129,7 @@ $('#terminal').terminal({
                     this.echo("╔═════════════════════════════════╗")
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
                     this.echo("╚═════════════════════════════════╝")
-                    echoStyledMessage("You unlocked your first upgrade! to view upgrades," + " type upgrade into your input line to view upgrades!" ,"p","test")
+                    echoStyledMessage("You unlocked your first upgrade! to view upgrades," + " type upgrade into your input line to view upgrades!" ,"p","note")
                     
                 }
     
@@ -150,7 +137,7 @@ $('#terminal').terminal({
                 return;
             }
     
-            promptStyledMessage("b","#11ff00","#0e0e0e", animationFrames[currentIndex]); // Replace the content of the current line
+            promptStyledMessage("b","#11ff00","#0e0e0e", learnFrames[currentIndex]); // Replace the content of the current line
             currentIndex++;
         }, animationSpeed);
 
@@ -159,10 +146,14 @@ $('#terminal').terminal({
     
 
     help: function () {
-			var statements = ["[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.",'[[b;#03fc03;#0e0e0e]help] - view help commands']
-        this.echo(
+
+        
+        for (var i = 0; i < statements.length; i++) {
+            echoStyledMessage(statements[i],"p","note"); // shows all messages
+        }
+        /*this.echo(
         '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
-        + '[[b;#03fc03;#0e0e0e]help] - view help commands');
+        + '[[b;#03fc03;#0e0e0e]help] - view help commands');*/
     },
 
     onCommandNotFound: function(command) {
