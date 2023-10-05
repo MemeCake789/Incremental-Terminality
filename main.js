@@ -18,12 +18,7 @@ var upgrades = [
 
 
 $('#terminal').terminal({
-    askName: function() {
-        var term = this;
-        term.read('What is your name? ').then(function(name) {
-            term.echo('Hello, ' + name + '!');
-        });
-    },
+
 
     upgrades: function() {
         function echoStyledMessage(message, tag, className) { 
@@ -70,9 +65,8 @@ $('#terminal').terminal({
         } 
         */ 
 
-        printStyledMessage('hello world', "h1", "test")
-        var testMessage = $('<h1 class="test">Hello World</h1>') 
-        this.echo(testMessage);
+
+        this.echo("testForReplit") // just to see if relpit works
         this.echo("╔═════════════════════════════════╗")
         this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
         this.echo("╚═════════════════════════════════╝")
@@ -165,6 +159,7 @@ $('#terminal').terminal({
     
 
     help: function () {
+			var statements = ["[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.",'[[b;#03fc03;#0e0e0e]help] - view help commands']
         this.echo(
         '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
         + '[[b;#03fc03;#0e0e0e]help] - view help commands');
@@ -199,7 +194,7 @@ $(function() {
 
         $('#terminal').terminal().echo(tips[0]);
 
-        setTimeout(gameLoop, frameInterval);
+        setTimeout(tips, frameInterval);
     }
     
 
