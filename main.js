@@ -74,7 +74,7 @@ $('#terminal').terminal({
 
     a: function(){
         var frames = [
-            "Frame 1",
+            "Framef",
             "Frame 2",
             "Frame 3",""
             // Add more frames here...
@@ -98,7 +98,7 @@ $('#terminal').terminal({
         
         this.read('Enter a buy code to purchase (case sensitive): ').then((code)=>{
             if (code === "2VWA"){
-                animateLearning(purchaseFrames,50);
+                animateFrames(purchaseFrames, 1000);
             } else {
                 echoStyledMessage("Cannot find that product!","p","note");
             }
