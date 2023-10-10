@@ -8,6 +8,8 @@
 
 */
 
+
+
 var intelligence = 0;
 var upgrades = [
     ["▌ Learn Level 2 ▌", "Improves learning methods. ▌", "Needs: 5 intelligence ▌", "Buy Code: [2VWA] ▌"]
@@ -16,6 +18,9 @@ var upgrades = [
 var statements = [
 	"[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.",'[[b;#03fc03;#0e0e0e]help] - view help commands'
 ];
+
+
+
 
 function echoStyledMessage(message, tag, className) {         
 	var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
@@ -28,12 +33,59 @@ function promptStyledMessage(format,color,background_color,message){
 }
 //(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`
 
+function animateFrames(frames, speed) {
+  var currentFrameIndex = 0;
+  var terminal = $('#terminal').terminal();
+
+  function printFrame() {
+    // Print the current frame
+    terminal.update('-1',frames[currentFrameIndex]);
+
+    // Increment the frame index
+    currentFrameIndex++;
+
+    // If we have reached the end of the frames, stop the animation
+    if (currentFrameIndex >= frames.length) {
+      return;
+    }
+
+    // Schedule the next frame to be printed after the specified speed
+    setTimeout(printFrame, speed);
+  }
+
+  // Start the animation
+  printFrame();
+}
+
+  
+  
+    // Start```
+  
+  
+  
+  
+
 $('#terminal').terminal({
 
+    a: function(){
+        var frames = [
+            "Frame 1",
+            "Frame 2",
+            "Frame 3",
+            // Add more frames here...
+          ];
+          
+          var speed = 1000; // Speed in milliseconds
+          
+          animateFrames(frames, speed);
+          
+          
+    },
 
     upgrades: function() {
-       
+        var purchaseFrames = ["test","test1","test2","test3","test4"]
         
+
         for (var i = 0; i < upgrades.length; i++) {
             echoStyledMessage(upgrades[i].join(' '),"p","note"); // shows all messages
         }
@@ -41,11 +93,14 @@ $('#terminal').terminal({
         
         this.read('Enter a buy code to purchase (case sensitive): ').then((code)=>{
             if (code === "2VWA"){
-                this.echo("ok");
-            } else{
-                echoStyledMessage("Cannot find that product!","p","note")
+                animateLearning(purchaseFrames,50);
+            } else {
+                echoStyledMessage("Cannot find that product!","p","note");
             }
+            
         });
+
+        
     },
 
     iam: function (name) {
