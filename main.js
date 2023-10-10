@@ -11,6 +11,7 @@
 
 
 var intelligence = 0;
+
 var upgrades = [
     ["▌ Learn Level 2 ▌", "Improves learning methods. ▌", "Needs: 5 intelligence ▌", "Buy Code: [2VWA] ▌"]
 ]
@@ -19,7 +20,7 @@ var statements = [
 	"[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.",'[[b;#03fc03;#0e0e0e]help] - view help commands'
 ];
 
-
+// -----------------------------------------------------------------------------------------
 
 
 function echoStyledMessage(message, tag, className) {         
@@ -31,25 +32,33 @@ function promptStyledMessage(format,color,background_color,message){
 	var promptStyledMessage = `[[${format};${color};${background_color}]${message}]`;
 	$('#terminal').terminal().set_prompt(() => promptStyledMessage);
 }
-//(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`
 
-function animateFrames(frames, speed) {
+function animateFrames(frames, speed, loopCount, endText) {
     var currentFrameIndex = 0;
+    var loopCounter = 0;
     var terminal = $('#terminal').terminal();
   
     // Disable the command line
     terminal.disable();
   
     function printFrame() {      
-      //terminal.update(-1, frames[currentFrameIndex]);
-      terminal.set_prompt(frames[currentFrameIndex])
+      terminal.set_prompt(frames[currentFrameIndex]);
       currentFrameIndex++;
   
       if (currentFrameIndex >= frames.length) {
-        // Enable the command line after the animation plays
-        terminal.set_prompt(">");
-        terminal.enable();
-        return;
+        // Reset the frame index to loop the animation
+        currentFrameIndex = 0;
+  
+        // Increment the loop counter
+        loopCounter++;
+  
+        // If the loop count has been reached, enable the command line and stop the animation
+        if (loopCounter >= loopCount) {
+          terminal.set_prompt(">")
+          terminal.echo(endText);
+          terminal.enable();
+          return;
+        }
       }
   
       // Schedule the next frame to be printed after the specified speed
@@ -60,35 +69,41 @@ function animateFrames(frames, speed) {
     printFrame();
   }
   
-
-
   
   
-    // Start```
-  
-  
-  
+// -----------------------------------------------------------------------------------------
   
 
 $('#terminal').terminal({
 
     a: function(){
         var frames = [
-            "Framef",
+            "Frame ",
             "Frame 2",
-            "Frame 3",""
+            "Frame 3",
             // Add more frames here...
           ];
           
           var speed = 1000; // Speed in milliseconds
           
-          animateFrames(frames, speed);
+          animateFrames(frames, speed, 3);
           
           
     },
 
-    upgrades: function() {
-        var purchaseFrames = ["test","test1","test2","test3","test4"]
+    upgrade: function() {
+        var purchaseFrames = [
+			"⠋ Purchasing",
+			"⠙ Purchasing",
+			"⠹ Purchasing",
+			"⠸ Purchasing",
+			"⠼ Purchasing",
+			"⠴ Purchasing",
+			"⠦ Purchasing",
+			"⠧ Purchasing",
+			"⠇ Purchasing",
+			"⠏ Purchasing"
+		]
         
 
         for (var i = 0; i < upgrades.length; i++) {
@@ -98,7 +113,9 @@ $('#terminal').terminal({
         
         this.read('Enter a buy code to purchase (case sensitive): ').then((code)=>{
             if (code === "2VWA"){
-                animateFrames(purchaseFrames, 1000);
+                intelligence - 5
+                animateFrames(purchaseFrames, 50, 5, `[ SHOP ] ► Bought: Learn Level 2 for 5 intelegence | Current intelegence : ${intelligence}`);
+
             } else {
                 echoStyledMessage("Cannot find that product!","p","note");
             }
@@ -113,16 +130,6 @@ $('#terminal').terminal({
             '. Welcome to GeeksForGeeks');
     },
     test: function () {
-        /*
-        function printStyledMessage(message, tag, className) { // type = 1- echo|type = 2- set prompt
-            var styledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
-            if ( type === 1 ){
-                $('#terminal').terminal().echo(styledMessage);
-            } else if ( type === 2){
-                $('#terminal').terminal().set_prompt(styledMessage);
-            }
-        } 
-        */ 
 
 
         this.echo("noteForReplit") // just to see if relpit works
