@@ -34,28 +34,33 @@ function promptStyledMessage(format,color,background_color,message){
 //(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`
 
 function animateFrames(frames, speed) {
-  var currentFrameIndex = 0;
-  var terminal = $('#terminal').terminal();
-
-  function printFrame() {
-    // Print the current frame
-    terminal.update('-1',frames[currentFrameIndex]);
-
-    // Increment the frame index
-    currentFrameIndex++;
-
-    // If we have reached the end of the frames, stop the animation
-    if (currentFrameIndex >= frames.length) {
-      return;
+    var currentFrameIndex = 0;
+    var terminal = $('#terminal').terminal();
+  
+    // Disable the command line
+    terminal.disable();
+  
+    function printFrame() {      
+      //terminal.update(-1, frames[currentFrameIndex]);
+      terminal.set_prompt(frames[currentFrameIndex])
+      currentFrameIndex++;
+  
+      if (currentFrameIndex >= frames.length) {
+        // Enable the command line after the animation plays
+        terminal.set_prompt(">");
+        terminal.enable();
+        return;
+      }
+  
+      // Schedule the next frame to be printed after the specified speed
+      setTimeout(printFrame, speed);
     }
-
-    // Schedule the next frame to be printed after the specified speed
-    setTimeout(printFrame, speed);
+  
+    // Start the animation
+    printFrame();
   }
+  
 
-  // Start the animation
-  printFrame();
-}
 
   
   
@@ -71,7 +76,7 @@ $('#terminal').terminal({
         var frames = [
             "Frame 1",
             "Frame 2",
-            "Frame 3",
+            "Frame 3",""
             // Add more frames here...
           ];
           
