@@ -4,7 +4,7 @@
     
 
     
-    ■ find out how to print ascii art in 1 echo statement ( make a function if neccacary )
+    ■ find out how to print ascii art in 1 echo statement ( make a function if necessary)
 
 */
 
