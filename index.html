@@ -33,6 +33,7 @@
     -->
 
     <header>
+        <div id="title">Terminalitʎ</div>
         <div id="random-message"></div>
         <div id="time-date"></div>
       </header>
@@ -75,7 +76,7 @@
           minutes = minutes < 10 ? '0' + minutes : minutes;
           var time = hours + ':' + minutes + ' ' + ampm;
           var date = now.toLocaleDateString();
-          document.getElementById("time-date").textContent = time + " - " + date;
+          document.getElementById("time-date").textContent = time + " - " + date + " - ";
         }
     
         // Initial display of time and date

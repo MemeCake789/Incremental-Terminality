@@ -1,3 +1,5 @@
+
+
 .terminal, .cmd {
     background: rgb(20, 20, 20);
     color: rgb(232, 232, 232);
@@ -56,6 +58,7 @@
 }
 
 body{
+  padding-top: 25px;
     background-color: rgb(20, 20, 20);
 }
 
@@ -109,7 +112,7 @@ header {
     background-color: #242424;
     padding: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     opacity: 0;
     animation: fade-in 1s ease-in-out forwards;
@@ -127,8 +130,15 @@ header {
   }
 
   #random-message {
+    font-size: 10px;
     font-weight: bold;
     animation: slide-in 0.5s ease-in-out;
+  }
+
+  #title {
+    font-family:'Courier New', Courier, monospace;
+    margin-right: 20px;
+    font-style: italic;
   }
 
   @keyframes slide-in {
@@ -142,10 +152,10 @@ header {
 
   @keyframes exit {
     0% {
-      transform: translateX(0);
+      transform: translateY(0);
     }
     100% {
-      transform: translateX(100%);
+      transform: translateY(-100%);
     }
   }
 
@@ -153,3 +163,4 @@ header {
 
     font-style: italic;
   }
+  
