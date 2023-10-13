@@ -10,26 +10,90 @@
     <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.css" />
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/animation.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
 </head>
 
 
 <body>
-    <!--ascii art for greeting-->
+
+    
+      
+      
+    <!--ascii art for greeting
+    other style:
+  ______    ______    ____     __  ___    ____    _   __    ___     __    ____  ________  __     
+ /_  __/   / ____/   / __ \   /  |/  /   /  _/   / | / /   /   |   / /   /  _/ /_  __/\ \/ /   
+  / /     / __/     / /_/ /  / /|_/ /    / /    /  |/ /   / /| |  / /    / /    / /    \  /    
+ / /     / /___    / _, _/  / /  / /   _/ /    / /|  /   / ___ | / /   _/ /    / /     / /
+/_/     /_____/   /_/ |_|  /_/  /_/   /___/   /_/ |_/   /_/  |_|/_/   /___/   /_/     /_/
+                                                                                          
+    
+    
+    -->
+
+    <header>
+        <div id="random-message"></div>
+        <div id="time-date"></div>
+      </header>
+    
+      <script>
+        var messages = [
+              "Hello!",
+              "Welcome!",
+              "Have a great day!",
+              "Stay positive!",
+              "Enjoy your time!"
+            ];
+
+        // Function to display a random message
+        function displayRandomMessage() {
+      var randomIndex = Math.floor(Math.random() * messages.length);
+      var message = messages[randomIndex];
+      var randomMessageElement = document.getElementById("random-message");
+      randomMessageElement.style.animation = "exit 0.5s ease-in-out";
+      setTimeout(function() {
+        randomMessageElement.textContent = message;
+        randomMessageElement.style.animation = "slide-in 0.5s ease-in-out";
+      }, 500);
+    }
+    
+        // Initial display of random message
+        displayRandomMessage();
+    
+        // Update random message every 10 seconds
+        setInterval(displayRandomMessage, 10000);
+    
+        // Function to display the current time and date
+        function displayTimeDate() {
+          var now = new Date();
+          var hours = now.getHours();
+          var minutes = now.getMinutes();
+          var ampm = hours >= 12 ? 'PM' : 'AM';
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+          minutes = minutes < 10 ? '0' + minutes : minutes;
+          var time = hours + ':' + minutes + ' ' + ampm;
+          var date = now.toLocaleDateString();
+          document.getElementById("time-date").textContent = time + " - " + date;
+        }
+    
+        // Initial display of time and date
+        displayTimeDate();
+    
+        // Update time and date every second
+        setInterval(displayTimeDate, 1000);
+      </script>
+
     <template id="greetings">
     IncrementalShell version 0.0.1
     (c) copyright MemeCake (not really). All rights reserved 2023
     
-
-        ██╗  ██╗███████╗██╗     ██╗      ██████╗     ██╗    ██╗ ██████╗ ██████╗ ██╗     ██████╗ ██╗
-        ██║  ██║██╔════╝██║     ██║     ██╔═══██╗    ██║    ██║██╔═══██╗██╔══██╗██║     ██╔══██╗██║
-        ███████║█████╗  ██║     ██║     ██║   ██║    ██║ █╗ ██║██║   ██║██████╔╝██║     ██║  ██║██║
-        ██╔══██║██╔══╝  ██║     ██║     ██║   ██║    ██║███╗██║██║   ██║██╔══██╗██║     ██║  ██║╚═╝
-        ██║  ██║███████╗███████╗███████╗╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║  ██║███████╗██████╔╝██╗
-        ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝                                                                                                                                                    
-
+     ______   ______   ____     __  ___   ____   _   __   ___      __      ____  ______  __
+    /_  __/  / ____/  / __ \   /  |/  /  /  _/  / | / /  /   |    / /     /  _/ /_  __/  \ \
+     / /    / __/    / /_/ /  / /|_/ /   / /   /  |/ /  / /| |   / /      / /    / /      > \ 
+    / /    / /___   / _, _/  / /  / /  _/ /   / /|  /  / ___ |  / /___  _/ /    / /      / ^ \ 
+   /_/    /_____/  /_/ |_|  /_/  /_/  /___/  /_/ |_/  /_/  |_| /_____/ /___/   /_/      /_/ \_\
 
     </template>
 

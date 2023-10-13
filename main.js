@@ -8,6 +8,29 @@
 
 */
 
+function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    let period = 'AM';
+
+    if (hours >= 12) {
+        period = 'PM';
+        if (hours > 12) {
+            hours -= 12;
+        }
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const timeString = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds} ${period}`;
+    document.getElementById('time').textContent = timeString;
+}
+
+setInterval(updateTime, 1000);
+
 
 
 var intelligence = 0;
@@ -107,17 +130,21 @@ $('#terminal').terminal({
         
 
         for (var i = 0; i < upgrades.length; i++) {
-            echoStyledMessage(upgrades[i].join(' '),"p","note"); // shows all messages
+            echoStyledMessage(upgrades[i].join(' '),"p","blue"); // shows all messages
         }
 
         
         this.read('Enter a buy code to purchase (case sensitive): ').then((code)=>{
             if (code === "2VWA"){
-                intelligence - 5
-                animateFrames(purchaseFrames, 50, 5, `[ SHOP ] ► Bought: Learn Level 2 for 5 intelegence | Current intelegence : ${intelligence}`);
-
-            } else {
-                echoStyledMessage("Cannot find that product!","p","note");
+                if (intelligence >= 5){
+                    intelligence - 5
+                    animateFrames(purchaseFrames, 50, 5, `terminality@shop: Bought Learn Level 2 for 5 intelegence | Current intelegence : ${intelligence}`);
+                    this.echo("test")
+                } else {
+                    echoStyledMessage("terminality@shop: You need 5 intelligence to buy this upgrade!","p","red");
+                }
+                } else {
+                echoStyledMessage("terminality@shop: Cannot find that product!","p","red");
             }
             
         });
@@ -189,10 +216,10 @@ $('#terminal').terminal({
                 clearInterval(animationInterval);
                 intelligence++;
                 this.echo(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`);
-                this.set_prompt(">");
+                this.set_prompt("user/dev/memecake789 $");
                 this.enable();
     
-                if (intelligence === 2) {
+                if (intelligence === 5) {
                     this.echo("╔═════════════════════════════════╗")
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
                     this.echo("╚═════════════════════════════════╝")
@@ -216,7 +243,7 @@ $('#terminal').terminal({
 
         
         for (var i = 0; i < statements.length; i++) {
-            echoStyledMessage(statements[i],"p","note"); // shows all messages
+            echoStyledMessage(statements[i],"p",""); // shows all messages
         }
         /*this.echo(
         '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
@@ -226,9 +253,12 @@ $('#terminal').terminal({
     onCommandNotFound: function(command) {
         // Scroll to the bottom of the terminal
         this.scrollToBottom();
+        // echo a message
+        
       },
 }, {
-    greetings: greetings.innerHTML + "[[b;blue;#0e0e0e]Hello!] Welcome to my [[b;blue;#0e0e0e]incremental game!] \n    To start, type [[b;blue;#0e0e0e]help] on the command line\n"
+    greetings: greetings.innerHTML + "[[b;#5da0d9;rgb(20, 20, 20);]Hello!] Welcome to [[b;#5da0d9;rgb(20, 20, 20);]Terminality  !] \n    To start, type [[b;#5da0d9;rgb(20, 20, 20);]help] on the command line\n",
+    prompt: 'user@localhost: $ ' 
 
 });
 

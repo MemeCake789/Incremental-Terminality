@@ -1,12 +1,12 @@
 .terminal, .cmd {
-    background: rgb(14, 14, 14);
-    color: #0f0;
+    background: rgb(20, 20, 20);
+    color: rgb(232, 232, 232);
     font-family: 'JetBrains Mono', monospace; /* why does this font not apply */
     
 }
 .terminal .inverted, .cmd .inverted, .cmd .cursor.blink {
-    background-color: #0f0;
-    color: rgb(14, 14, 14);
+    background-color: rgb(232, 232, 232);
+    color: rgb(20, 20, 20);
 }
 
 .cursor{
@@ -14,51 +14,142 @@
 }
 @-webkit-keyframes terminal-blink {
   0%, 100% {
-      background-color: rgb(14, 14, 14);
-      color: #0f0;
+      background-color: rgb(20, 20, 20);
+      color: rgb(232, 232, 232);
   }
   50% {
       background-color: #0e0;
-      color: rgb(14, 14, 14);
+      color: rgb(20, 20, 20);
   }
 }
 
 @-ms-keyframes terminal-blink {
   0%, 100% {
-      background-color: rgb(14, 14, 14);
-      color: #0f0;
+      background-color: rgb(20, 20, 20);
+      color: rgb(232, 232, 232);
   }
   50% {
       background-color: #0e0;
-      color: rgb(14, 14, 14);
+      color: rgb(20, 20, 20);
   }
 }
 
 @-moz-keyframes terminal-blink {
   0%, 100% {
-      background-color: rgb(14, 14, 14);
-      color: #0f0;
+      background-color: rgb(20, 20, 20);
+      color: rgb(232, 232, 232);
   }
   50% {
       background-color: #0e0;
-      color: rgb(14, 14, 14);
+      color: rgb(20, 20, 20);
   }
 }
 @keyframes terminal-blink {
   0%, 100% {
-      background-color: rgb(14, 14, 14);
-      color: #0f0;
+      background-color: rgb(20, 20, 20);
+      color: rgb(232, 232, 232);
   }
   50% {
       background-color: #0e0;
-      color: rgb(14, 14, 14);
+      color: rgb(20, 20, 20);
   }
 }
 
 body{
-    background-color: rgb(14, 14, 14);
+    background-color: rgb(20, 20, 20);
 }
 
-.note{
-    color: #1500ff;
+
+.red{
+    color: rgb(190, 0, 0);
 }
+
+.orange{
+    color: #c56200;
+}
+
+.yellow{
+    color: rgb(255, 255, 130);
+}
+
+.green{
+    color: rgb(129, 255, 129);
+}
+
+.blue{
+    color: #68b9ff;
+}
+
+.cyan{
+    color: rgb(0, 194, 194);
+}
+
+.purple{
+    color: rgb(103, 0, 199);
+}
+
+
+@keyframes slideDown {
+    from{
+        transform: translate(0px, -200px);
+    }
+  
+    to {
+        
+        transform: translate(0px, 0px);
+  }
+  
+}
+header {
+    font-family: Fira Code;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #242424;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+    z-index: 9999;
+    color: #ffffff;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  #random-message {
+    font-weight: bold;
+    animation: slide-in 0.5s ease-in-out;
+  }
+
+  @keyframes slide-in {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes exit {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  #time-date {
+
+    font-style: italic;
+  }
