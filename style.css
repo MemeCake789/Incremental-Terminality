@@ -132,7 +132,6 @@ header {
 
   #random-message {
     font-size: 10px;
-    font-weight: bold;
     animation: slide-in 0.5s ease-in-out;
   }
 
