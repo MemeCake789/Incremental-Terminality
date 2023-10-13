@@ -40,7 +40,10 @@ var upgrades = [
 ]
 
 var statements = [
-	"[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.",'[[b;#03fc03;#0e0e0e]help] - view help commands'
+    '[[b;rgb(129, 255, 129);#0e0e0e]help] - view help commands.',
+    "[[b;rgb(129, 255, 129);#0e0e0e]learn] - learn how to code, gain some intelligence.",
+
+    
 ];
 
 // -----------------------------------------------------------------------------------------
@@ -216,7 +219,7 @@ $('#terminal').terminal({
                 clearInterval(animationInterval);
                 intelligence++;
                 this.echo(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`);
-                this.set_prompt("user/dev/memecake789 $");
+                this.set_prompt("user@localhost: $ ");
                 this.enable();
     
                 if (intelligence === 5) {
@@ -224,7 +227,7 @@ $('#terminal').terminal({
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
                     this.echo("╚═════════════════════════════════╝")
                     echoStyledMessage("You unlocked your first upgrade! to view upgrades," + " type upgrade into your input line to view upgrades!" ,"p","note")
-                    
+                    statements.push('[[b;rgb(129, 255, 129);#0e0e0e]upgrade] - view all upgrades')
                 }
     
                 this.scrollToBottom();
@@ -243,7 +246,7 @@ $('#terminal').terminal({
 
         
         for (var i = 0; i < statements.length; i++) {
-            echoStyledMessage(statements[i],"p",""); // shows all messages
+            this.echo(statements[i]); // shows all messages
         }
         /*this.echo(
         '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
@@ -257,7 +260,7 @@ $('#terminal').terminal({
         
       },
 }, {
-    greetings: greetings.innerHTML + "[[b;#5da0d9;rgb(20, 20, 20);]Hello!] Welcome to [[b;#5da0d9;rgb(20, 20, 20);]Terminality  !] \n    To start, type [[b;#5da0d9;rgb(20, 20, 20);]help] on the command line\n",
+    greetings: greetings.innerHTML + "[[b;#5da0d9;rgb(20, 20, 20);]Hello!] Welcome to [[b;#5da0d9;rgb(20, 20, 20);]Terminality!] \n    To start, type [[b;#5da0d9;rgb(20, 20, 20);]help] on the command line\n",
     prompt: 'user@localhost: $ ' 
 
 });
