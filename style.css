@@ -3,7 +3,6 @@
 .terminal, .cmd {
     background: rgb(20, 20, 20);
     color: rgb(232, 232, 232);
-    font-family: 'JetBrains Mono', monospace; /* why does this font not apply */
     
 }
 .terminal .inverted, .cmd .inverted, .cmd .cursor.blink {
@@ -64,11 +63,11 @@ body{
 
 
 .red{
-    color: rgb(190, 0, 0);
+    color: rgb(255, 29, 29);
 }
 
 .orange{
-    color: #c56200;
+    color: #ff9224;
 }
 
 .yellow{
@@ -84,11 +83,11 @@ body{
 }
 
 .cyan{
-    color: rgb(0, 194, 194);
+    color: rgb(44, 255, 255);
 }
 
 .purple{
-    color: rgb(103, 0, 199);
+    color: rgb(160, 59, 255);
 }
 
 

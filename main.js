@@ -34,14 +34,15 @@ setInterval(updateTime, 1000);
 
 
 var intelligence = 0;
+var intelegencePerCommand = 1;
 
 var upgrades = [
-    ["▌ Learn Level 2 ▌", "Improves learning methods. ▌", "Needs: 5 intelligence ▌", "Buy Code: [2VWA] ▌"]
+    ["▌ Learn Level 2 ▌ Improves learning methods. ▌ Needs: 5 intelligence ▌ Buy Code: 2VWA ▌"]
 ]
 
 var statements = [
-    '[[b;rgb(129, 255, 129);#0e0e0e]help] - view help commands.',
-    "[[b;rgb(129, 255, 129);#0e0e0e]learn] - learn how to code, gain some intelligence.",
+    '[[b;rgb(129, 255, 129);rgb(20, 20, 20)]help] - view help commands.',
+    "[[b;rgb(129, 255, 129);rgb(20, 20, 20)]learn] - learn how to code, gain some intelligence.",
 
     
 ];
@@ -80,7 +81,7 @@ function animateFrames(frames, speed, loopCount, endText) {
   
         // If the loop count has been reached, enable the command line and stop the animation
         if (loopCounter >= loopCount) {
-          terminal.set_prompt(">")
+          terminal.set_prompt("user@localhost: $ ")
           terminal.echo(endText);
           terminal.enable();
           return;
@@ -133,20 +134,27 @@ $('#terminal').terminal({
         
 
         for (var i = 0; i < upgrades.length; i++) {
-            echoStyledMessage(upgrades[i].join(' '),"p","blue"); // shows all messages
-        }
+            const upgrade = upgrades[i];
+            
+            for (const line of upgrade) {
+              echoStyledMessage(line, "p", "blue"); 
+            }
+          }
 
         
         this.read('Enter a buy code to purchase (case sensitive): ').then((code)=>{
             if (code === "2VWA"){
+
                 if (intelligence >= 5){
-                    intelligence - 5
+                    intelligence -= 5;
+                    intelegencePerCommand = 2;
+
                     animateFrames(purchaseFrames, 50, 5, `terminality@shop: Bought Learn Level 2 for 5 intelegence | Current intelegence : ${intelligence}`);
-                    this.echo("test")
                 } else {
                     echoStyledMessage("terminality@shop: You need 5 intelligence to buy this upgrade!","p","red");
                 }
-                } else {
+
+            } else {
                 echoStyledMessage("terminality@shop: Cannot find that product!","p","red");
             }
             
@@ -217,8 +225,8 @@ $('#terminal').terminal({
         const animationInterval = setInterval(() => {
             if (currentIndex === learnFrames.length) {
                 clearInterval(animationInterval);
-                intelligence++;
-                this.echo(`Gained [[b;#11ff00;#0e0e0e]1] intelligence, total intelligence:[[b;#11ff00;#0e0e0e] ${intelligence}]`);
+                intelligence += intelegencePerCommand;
+                this.echo(`Gained [[b;rgb(129, 255, 129);#0e0e0e]${intelegencePerCommand}] intelligence, total intelligence:[[b;rgb(129, 255, 129);;#0e0e0e] ${intelligence}]`);
                 this.set_prompt("user@localhost: $ ");
                 this.enable();
     
@@ -226,15 +234,15 @@ $('#terminal').terminal({
                     this.echo("╔═════════════════════════════════╗")
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
                     this.echo("╚═════════════════════════════════╝")
-                    echoStyledMessage("You unlocked your first upgrade! to view upgrades," + " type upgrade into your input line to view upgrades!" ,"p","note")
-                    statements.push('[[b;rgb(129, 255, 129);#0e0e0e]upgrade] - view all upgrades')
+                    echoStyledMessage("You unlocked your first upgrade! to view upgrades," + " type upgrade into your input line to view upgrades!" ,"p","blue")
+                    statements.push('[[b;rgb(129, 255, 129);rgb(20, 20, 20)]upgrade] - view all upgrades')
                 }
     
                 this.scrollToBottom();
                 return;
             }
     
-            promptStyledMessage("b","#11ff00","#0e0e0e", learnFrames[currentIndex]); // Replace the content of the current line
+            promptStyledMessage("b","rgb(129, 255, 129)","#0e0e0e", learnFrames[currentIndex]); // Replace the content of the current line
             currentIndex++;
         }, animationSpeed);
 
