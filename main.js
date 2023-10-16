@@ -7,6 +7,8 @@
 */
 // █ Variables and Lists ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
+
+
 var intelligence = 0;
 var intelegencePerCommand = 1;
 
@@ -20,6 +22,10 @@ var statements = [
 
     
 ];
+
+// Create displayVars array
+var displayVars = [];
+displayVars.push("intelligence");
 
 // █ FUNCTIONS ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
@@ -147,13 +153,13 @@ $('#terminal').terminal({
                     intelligence -= 5;
                     intelegencePerCommand = 2;
 
-                    animateFrames(purchaseFrames, 50, 5, `terminality@shop: Bought Learn Level 2 for 5 intelegence | Current intelegence : ${intelligence}`);
+                    animateFrames(purchaseFrames, 50, 5, `terminalitʎ@shop: Bought Learn Level 2 for 5 intelegence | Current intelegence : ${intelligence}`);
                 } else {
-                    echoStyledMessage("terminality@shop: You need 5 intelligence to buy this upgrade!","p","red");
+                    echoStyledMessage("terminalitʎ@shop: You need 5 intelligence to buy this upgrade!","p","red");
                 }
 
             } else {
-                echoStyledMessage("terminality@shop: Cannot find that product!","p","red");
+                echoStyledMessage("terminalitʎ@shop: Cannot find that product!","p","red");
             }
             
         });
@@ -227,7 +233,18 @@ $('#terminal').terminal({
                 this.echo(`Gained [[b;rgb(129, 255, 129);#0e0e0e]${intelegencePerCommand}] intelligence, total intelligence:[[b;rgb(129, 255, 129);;#0e0e0e] ${intelligence}]`);
                 this.set_prompt("user@localhost: $ ");
                 this.enable();
-    
+
+                /*if (intelligence > 1) {
+                    // Add intelligence to list
+                    displayVars.push("intelligence");
+                  } else {
+                    // Remove intelligence from list
+                    let index = displayVars.indexOf("intelligence");
+                    if (index !== -1) {
+                      displayVars.splice(index, 1); 
+                    }
+                  }
+    */
                 if (intelligence === 5) {
                     this.echo("╔═════════════════════════════════╗")
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
@@ -261,6 +278,9 @@ $('#terminal').terminal({
         // Scroll to the bottom of the terminal
         this.scrollToBottom();
         // echo a message
+
+       
+          
         
       },
 }, {

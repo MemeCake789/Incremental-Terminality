@@ -4,13 +4,13 @@
 <head>
 
 	<meta http-equiv="content-type"content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.css" />
-    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/animation.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/animation.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
 </head>
 
@@ -33,11 +33,17 @@
     -->
 
     <header>
-        <div id="title">Terminalitʎ</div>
-        <div id="random-message"></div>
-        <div id="time-date"></div>
-      </header>
-    
+      <div id="title">Terminalitʎ</div>
+      <div id="random-message"></div>
+      <div id="time-date"></div>
+    </header>
+
+    <header class="bar">
+      <div id="variables"></div>
+    </header>
+
+      <script src="main.js"></script>
+      
       <script>
         var messages = [
               "@Terminalitʎ_news: Welcome to Terminalitʎ!",
@@ -46,7 +52,7 @@
               "@Terminalitʎ_news: Today marks the 10 year aniversary of the day that NFT became useless!",
               "@Terminalitʎ_news: Reaserchers in the carriebiean claim to have found the infamous ONE-PIECE, reporters shocked.",
               "@Terminalitʎ_news: MemeCake issues a new app, OnlyTerminal which is like OnlyFans but for terminals.",
-              "@Terminalitʎ_news: Daycare teachers under arrest after storing fentanyl underneath a carpet. ( This actually happened in real life, look it up)",
+              "@Terminalitʎ_news: Daycare teacher under arrest after storing fentanyl underneath a carpet. ( This actually happened in real life, look it up)",
               "@Terminalitʎ_news: MemeCake has been arrested for possession of a firearm and is being held in a jail for 12 hours. ( these ai generated messages are wild like i didn't even do that )",
               "@Terminalitʎ_news: Terminalitʎ employee gets sued after calling MemeCake a poopy butt dumb ass caca popo shithead."	,
               "@Terminalitʎ_stock: ▲ DOW | 100.00 | + 2.4% ▲",
@@ -75,11 +81,11 @@
 
         // Function to display a random message
         function displayRandomMessage() {
-      var randomIndex = Math.floor(Math.random() * messages.length);
-      var message = messages[randomIndex];
-      var randomMessageElement = document.getElementById("random-message");
-      randomMessageElement.style.animation = "exit 0.5s ease-in-out";
-      setTimeout(function() {
+        var randomIndex = Math.floor(Math.random() * messages.length);
+        var message = messages[randomIndex];
+        var randomMessageElement = document.getElementById("random-message");
+        randomMessageElement.style.animation = "exit 0.5s ease-in-out";
+        setTimeout(function() {
         randomMessageElement.textContent = message;
         randomMessageElement.style.animation = "slide-in 0.5s ease-in-out";
       }, 500);
@@ -110,6 +116,33 @@
     
         // Update time and date every second
         setInterval(displayTimeDate, 1000);
+
+        // Function to display the current year, month, and day
+        function displayVariables() {
+
+        
+          let varString = "";
+        
+          // Loop through displayVars array
+          for(let i = 0; i < displayVars.length; i++) {
+          
+            // Add variable to string
+            let varName = displayVars[i];
+            varString += varName + ": " + window[varName] + " ";
+          
+          }
+        
+
+        
+        
+          document.getElementById("variables").textContent = varString;
+        }
+      
+        // Initial display of variables
+        displayVariables();
+      
+        // Update variables every second
+        setInterval(displayVariables, 500);
       </script>
 
     <template id="greetings">

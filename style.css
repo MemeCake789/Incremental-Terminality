@@ -1,4 +1,7 @@
+html{
+  font-family:'Courier New', Courier, monospace;
 
+}
 
 .terminal, .cmd {
     background: rgb(20, 20, 20);
@@ -136,7 +139,6 @@ header {
   }
 
   #title {
-    font-family:'Courier New', Courier, monospace;
     margin-right: 20px;
     font-style: italic;
   }
@@ -162,5 +164,31 @@ header {
   #time-date {
 
     font-style: italic;
+  }
+
+  #variables {
+    font-style: italic;
+  }
+
+  .bar {
+    font-family:'Courier New', Courier, monospace;
+    width: 100%;
+    background-color: #323232;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: fade-in 1s ease-in-out forwards;
+    z-index: 9999;
+    color: #ffffff;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    top: 40px; 
+    padding: 5px;
+    margin-bottom: 100px;
+    
+    
+
+
   }
   
