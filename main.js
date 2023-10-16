@@ -1,37 +1,11 @@
 /*
 
     TODO:
-    
-
-    
-    ■ find out how to print ascii art in 1 echo statement ( make a function if neccacary )
+        
+    ■ Work on idle tools
 
 */
-
-function updateTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    let period = 'AM';
-
-    if (hours >= 12) {
-        period = 'PM';
-        if (hours > 12) {
-            hours -= 12;
-        }
-    } else if (hours === 0) {
-        hours = 12;
-    }
-
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-
-    const timeString = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds} ${period}`;
-    document.getElementById('time').textContent = timeString;
-}
-
-setInterval(updateTime, 1000);
-
-
+// █ Variables and Lists ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
 var intelligence = 0;
 var intelegencePerCommand = 1;
@@ -47,7 +21,8 @@ var statements = [
     
 ];
 
-// -----------------------------------------------------------------------------------------
+// █ FUNCTIONS ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
 
 
 function echoStyledMessage(message, tag, className) {         
@@ -95,10 +70,33 @@ function animateFrames(frames, speed, loopCount, endText) {
     // Start the animation
     printFrame();
   }
+
+  function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    let period = 'AM';
+
+    if (hours >= 12) {
+        period = 'PM';
+        if (hours > 12) {
+            hours -= 12;
+        }
+    } else if (hours === 0) {
+        hours = 12;
+    }
+
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const timeString = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds} ${period}`;
+    document.getElementById('time').textContent = timeString;
+}
+
+setInterval(updateTime, 1000);
   
   
   
-// -----------------------------------------------------------------------------------------
+// █ Terminal ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
   
 
 $('#terminal').terminal({
@@ -256,9 +254,7 @@ $('#terminal').terminal({
         for (var i = 0; i < statements.length; i++) {
             this.echo(statements[i]); // shows all messages
         }
-        /*this.echo(
-        '[[b;#03fc03;#0e0e0e]learn] - learn how to code, gain some intelligence.\n'
-        + '[[b;#03fc03;#0e0e0e]help] - view help commands');*/
+
     },
 
     onCommandNotFound: function(command) {
@@ -278,15 +274,6 @@ $('#terminal').terminal({
 $(function() {
     var frameInterval = 120 * 1000 // sends a tip every 2 min
     function tips() {
-        /*
-        $('#terminal').terminal().echo(new $.terminal.FramesAnimation([
-            [""]
-        ], 8));
-        */
-
-      // Code to run every frame
-       //$('#terminal').terminal().echo('Running game loop...'); <- try to avoid echoing statments to the game loop
-      // Call the game loop again for the next frame
       var tips = [
         "[[b;#0d1c0e;#ffffff] Tip ■ use the up ( ▲ ) or down ( ▼ ) keys to view your message history. ]"
     ]
