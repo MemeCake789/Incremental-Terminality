@@ -109,7 +109,10 @@ $('#terminal').terminal({
 
     a: function(){
         var frames = [
-            "Frame ",
+`
+line1
+line2 
+line3 `, // use `` for multiline strings
             "Frame 2",
             "Frame 3",
             // Add more frames here...
@@ -190,9 +193,75 @@ $('#terminal').terminal({
     },
     learn: function() {
 
-
-
         const learnFrames = [
+            "⠋ Collecting data points - [ rfetch.json ] ", 
+			"⠙ Collecting data points - [ rfetch.json ]",
+			"⠹ Collecting data points - [ rfetch.json ]",
+			"⠸ Collecting data points - [ rfetch.json ]",
+			"⠼ Collecting data points - [ rfetch.json ]",
+			"⠴ Collecting data points - [ rfetch.json ]",
+			"⠦ Collecting data points - [ rfetch.json ]",
+			"⠧ Collecting data points - [ rfetch.json ]",
+			"⠇ Collecting data points - [ rfetch.json ]",
+			"⠏ Collecting data points - [ rfetch.json ]",
+
+            "⠋ Downloading data points - [ rfetch.json ]",
+            "⠙ Downloading data points - [ rfetch.json ]",
+            "⠹ Downloading data points - [ rfetch.json ]",
+            "⠸ Downloading data points - [ rfetch.json ]",
+            "⠼ Downloading data points - [ rfetch.json ]",
+            "⠴ Downloading data points - [ rfetch.json ]",
+            "⠦ Downloading data points - [ rfetch.json ]",
+            "⠧ Downloading data points - [ rfetch.json ]",
+            "⠇ Downloading data points - [ rfetch.json ]",
+            "⠏ Downloading data points - [ rfetch.json ]",
+
+            ` ✓ Added file - [ rfetch.json ] \n  `,
+
+`✓ Added file - [ rfetch.json ]
+⠋ Collecting data points - [ status.nix ]`, 
+`✓ Added file - [ rfetch.json ]
+⠙ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠹ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠸ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠼ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠴ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠦ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠧ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠇ Collecting data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠏ Collecting data points - [ status.nix ]`,
+
+`✓ Added file - [ rfetch.json ]
+⠋ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠙ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠹ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠸ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠼ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠴ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠦ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠧ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠇ Downloading data points - [ status.nix ]`,
+`✓ Added file - [ rfetch.json ]
+⠏ Downloading data points - [ status.nix ]`,
+        ]
+
+        /*const learnFrames = [
             "Learning: ▌          ▐ 00%",
             "Learning: ▌▒         ▐ 05%",
             "Learning: ▌█         ▐ 10%",
@@ -219,7 +288,7 @@ $('#terminal').terminal({
             "Learning: ▌██████████▐ 100%",
             "Learning: ▌██████████▐ 100%",
 
-        ];
+        ];*/
     
         const animationSpeed = 75; // Speed of animation in milliseconds
         let currentIndex = 0;
@@ -230,6 +299,8 @@ $('#terminal').terminal({
             if (currentIndex === learnFrames.length) {
                 clearInterval(animationInterval);
                 intelligence += intelegencePerCommand;
+                this.echo("✓ Added file - [ rfetch.json ]")
+                this.echo("✓ Added file - [ status.nix ]")
                 this.echo(`Gained [[b;rgb(129, 255, 129);#0e0e0e]${intelegencePerCommand}] intelligence, total intelligence:[[b;rgb(129, 255, 129);;#0e0e0e] ${intelligence}]`);
                 this.set_prompt("user@localhost: $ ");
                 this.enable();
