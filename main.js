@@ -31,9 +31,10 @@ displayVars.push("intelligence");
 
 
 
+
 function echoStyledMessage(message, tag, className) {         
 	var echoStyledMessage = $(`<${tag} class="${className}">${message}</${tag}>`);
-	$('#terminal').terminal().echo(echoStyledMessage);      
+	$('#terminal').terminal().echo(echoStyledMessage);
 }
         
 function promptStyledMessage(format,color,background_color,message){
@@ -103,7 +104,7 @@ setInterval(updateTime, 1000);
   
   
 // █ Terminal ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
-  
+
 
 $('#terminal').terminal({
 
@@ -194,128 +195,307 @@ line3 `, // use `` for multiline strings
     learn: function() {
 
         const learnFrames = [
-            "⠋ Collecting data points - [ rfetch.json ] ", 
-			"⠙ Collecting data points - [ rfetch.json ]",
-			"⠹ Collecting data points - [ rfetch.json ]",
-			"⠸ Collecting data points - [ rfetch.json ]",
-			"⠼ Collecting data points - [ rfetch.json ]",
-			"⠴ Collecting data points - [ rfetch.json ]",
-			"⠦ Collecting data points - [ rfetch.json ]",
-			"⠧ Collecting data points - [ rfetch.json ]",
-			"⠇ Collecting data points - [ rfetch.json ]",
-			"⠏ Collecting data points - [ rfetch.json ]",
+`
+⠋ Collecting data points - | rfetch.json | `, 
+`
+⠙ Collecting data points - | rfetch.json |`,
+`
+⠹ Collecting data points - | rfetch.json |`,
+`
+⠸ Collecting data points - | rfetch.json |`,
+`
+⠼ Collecting data points - | rfetch.json |`,
+`
+⠴ Collecting data points - | rfetch.json |`,
+`
+⠦ Collecting data points - | rfetch.json |`,
+`
+⠧ Collecting data points - | rfetch.json |`,
+`
+⠇ Collecting data points - | rfetch.json |`,
+`
+⠏ Collecting data points - | rfetch.json |`,
+`
+⠋ Downloading data points - | rfetch.json |`,
+`
+⠙ Downloading data points - | rfetch.json |`,
+`
+⠹ Downloading data points - | rfetch.json |`,
+`
+⠸ Downloading data points - | rfetch.json |`,
+`
+⠼ Downloading data points - | rfetch.json |`,
+`
+⠴ Downloading data points - | rfetch.json |`,
+`
+⠦ Downloading data points - | rfetch.json |`,
+`
+⠧ Downloading data points - | rfetch.json |`,
+`
+⠇ Downloading data points - | rfetch.json |`,
+`
+⠏ Downloading data points - | rfetch.json |`,
 
-            "⠋ Downloading data points - [ rfetch.json ]",
-            "⠙ Downloading data points - [ rfetch.json ]",
-            "⠹ Downloading data points - [ rfetch.json ]",
-            "⠸ Downloading data points - [ rfetch.json ]",
-            "⠼ Downloading data points - [ rfetch.json ]",
-            "⠴ Downloading data points - [ rfetch.json ]",
-            "⠦ Downloading data points - [ rfetch.json ]",
-            "⠧ Downloading data points - [ rfetch.json ]",
-            "⠇ Downloading data points - [ rfetch.json ]",
-            "⠏ Downloading data points - [ rfetch.json ]",
+`
+✓ Added file - | rfetch.json |
 
-            ` ✓ Added file - [ rfetch.json ] \n  `,
+⠋ Collecting data points - | status.nix |`, 
+`
+✓ Added file - | rfetch.json |
 
-`✓ Added file - [ rfetch.json ]
-⠋ Collecting data points - [ status.nix ]`, 
-`✓ Added file - [ rfetch.json ]
-⠙ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠹ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠸ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠼ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠴ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠦ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠧ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠇ Collecting data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠏ Collecting data points - [ status.nix ]`,
+⠙ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
 
-`✓ Added file - [ rfetch.json ]
-⠋ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠙ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠹ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠸ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠼ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠴ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠦ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠧ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠇ Downloading data points - [ status.nix ]`,
-`✓ Added file - [ rfetch.json ]
-⠏ Downloading data points - [ status.nix ]`,
+⠹ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠸ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠼ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠴ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠦ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠧ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠇ Collecting data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠏ Collecting data points - | status.nix |`,
+
+`
+✓ Added file - | rfetch.json |
+
+⠋ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠙ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠹ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠸ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠼ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠴ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠦ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠧ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠇ Downloading data points - | status.nix |`,
+`
+✓ Added file - | rfetch.json |
+
+⠏ Downloading data points - | status.nix |`,
+
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌          ▐ 00%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌          ▐ 05%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌█         ▐ 10%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌█         ▐ 15%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██        ▐ 20%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██        ▐ 25%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌███       ▐ 30%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌███       ▐ 35%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌████      ▐ 40%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌████      ▐ 45%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌█████     ▐ 50%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌█████     ▐ 55%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██████    ▐ 60%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██████    ▐ 65%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌███████   ▐ 70%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌███████   ▐ 75%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌████████  ▐ 80%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌████████  ▐ 85%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌█████████ ▐ 90%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌█████████ ▐ 95%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██████████▐ 100%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██████████▐ 100%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██████████▐ 100%`,
+`
+✓ Added file - | rfetch.json |
+
+✓ Added file - | status.nix |
+
+Compiling Data: ▌██████████▐ 100%`,
+
         ]
-
-        /*const learnFrames = [
-            "Learning: ▌          ▐ 00%",
-            "Learning: ▌▒         ▐ 05%",
-            "Learning: ▌█         ▐ 10%",
-            "Learning: ▌█▒        ▐ 15%",
-            "Learning: ▌██        ▐ 20%",
-            "Learning: ▌██▒       ▐ 25%",
-            "Learning: ▌███       ▐ 30%",
-            "Learning: ▌███▒      ▐ 35%",
-            "Learning: ▌████      ▐ 40%",
-            "Learning: ▌████▒     ▐ 45%",
-            "Learning: ▌█████     ▐ 50%",
-            "Learning: ▌█████▒    ▐ 55%",
-            "Learning: ▌██████    ▐ 60%",
-            "Learning: ▌██████▒   ▐ 65%",
-            "Learning: ▌███████   ▐ 70%",
-            "Learning: ▌███████▒  ▐ 75%",
-            "Learning: ▌████████  ▐ 80%",
-            "Learning: ▌████████▒ ▐ 85%",
-            "Learning: ▌█████████ ▐ 90%",
-            "Learning: ▌█████████▒▐ 95%",
-            "Learning: ▌██████████▐ 100%",
-            "Learning: ▌██████████▐ 100%",
-            "Learning: ▌██████████▐ 100%",
-            "Learning: ▌██████████▐ 100%",
-            "Learning: ▌██████████▐ 100%",
-
-        ];*/
-    
-        const animationSpeed = 75; // Speed of animation in milliseconds
+ 
+        const animationSpeed = 50; // Speed of animation in milliseconds
         let currentIndex = 0;
-    
+        
         this.disable(); // disables input line
     
         const animationInterval = setInterval(() => {
             if (currentIndex === learnFrames.length) {
                 clearInterval(animationInterval);
                 intelligence += intelegencePerCommand;
-                this.echo("✓ Added file - [ rfetch.json ]")
-                this.echo("✓ Added file - [ status.nix ]")
+                echoStyledMessage("✓ Added file - [ rfetch.json ]","p","green")
+                echoStyledMessage("✓ Added file - [ status.nix ]","p","green")
+                echoStyledMessage("Compiling Data: ▌██████████▐ 100%","p","green")
                 this.echo(`Gained [[b;rgb(129, 255, 129);#0e0e0e]${intelegencePerCommand}] intelligence, total intelligence:[[b;rgb(129, 255, 129);;#0e0e0e] ${intelligence}]`);
                 this.set_prompt("user@localhost: $ ");
                 this.enable();
 
-                /*if (intelligence > 1) {
-                    // Add intelligence to list
-                    displayVars.push("intelligence");
+
+                if (intelligence > 1) {
+                    // Only add if not already in array
+                    if(!displayVars.includes("intelligence")) {
+                      displayVars.push("intelligence"); 
+                    }
                   } else {
-                    // Remove intelligence from list
+                    // Remove intelligence from list if present
                     let index = displayVars.indexOf("intelligence");
                     if (index !== -1) {
-                      displayVars.splice(index, 1); 
+                      displayVars.splice(index, 1);
                     }
                   }
-    */
+                  
+    
                 if (intelligence === 5) {
                     this.echo("╔═════════════════════════════════╗")
                     this.echo("╟ Unlocked upgrade : learn lvl 2  ╢")
@@ -330,6 +510,7 @@ line3 `, // use `` for multiline strings
     
             promptStyledMessage("b","rgb(129, 255, 129)","#0e0e0e", learnFrames[currentIndex]); // Replace the content of the current line
             currentIndex++;
+            
         }, animationSpeed);
 
         
@@ -354,16 +535,32 @@ line3 `, // use `` for multiline strings
           
         
       },
+    
+    
 }, {
     greetings: greetings.innerHTML + "[[b;#5da0d9;rgb(20, 20, 20);]Hello!] Welcome to [[b;#5da0d9;rgb(20, 20, 20);]Terminality!] \n    To start, type [[b;#5da0d9;rgb(20, 20, 20);]help] on the command line\n",
     prompt: 'user@localhost: $ ' 
 
 });
 
- 
+$('#terminal2').terminal(function(command) {
+    if (command !== '') {
+        var result = window.eval(command);
+        if (result != undefined) {
+            this.echo(String(result));
+        }
+    }
+}, {
+    greetings: 'Terminal 2',
+    name: 'terminal2',
+    height: 200,
+    width: 450,
+    prompt: 'terminal2> '
+});
+
 
 $(function() {
-    var frameInterval = 120 * 1000 // sends a tip every 2 min
+    var frameInterval = 60 * 1000 // sends a tip every 2 min
     function tips() {
       var tips = [
         "[[b;#0d1c0e;#ffffff] Tip ■ use the up ( ▲ ) or down ( ▼ ) keys to view your message history. ]"
@@ -379,4 +576,5 @@ $(function() {
     tips();
     
   });
+
   
