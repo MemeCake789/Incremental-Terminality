@@ -120,7 +120,6 @@ header {
     animation: fade-in 1s ease-in-out forwards;
     z-index: 9999;
     color: #ffffff;
-    padding: 10px;
   }
 
   @keyframes fade-in {
@@ -180,15 +179,30 @@ header {
     animation: fade-in 1s ease-in-out forwards;
     z-index: 9999;
     color: #ffffff;
-    width: 100%;
-    align-items: center;
     position: fixed;
     top: 40px; 
     padding: 5px;
     margin-bottom: 100px;
     
-    
+	}
 
+#terminal2{
+	display: none;
+}
 
-  }
-  
+  .terminal, .terminal2{
+		margin-top: 50px;
+	}
+
+button {
+	font-family: monospace;
+	background-color: #242424;
+	color: #ffffff;
+	padding: 5px 10px;
+	border: none;
+	cursor: pointer;
+}
+button:hover {
+	background-color: #555555;
+}
+

@@ -543,38 +543,12 @@ Compiling Data: ▌██████████▐ 100%`,
 
 });
 
-$('#terminal2').terminal(function(command) {
-    if (command !== '') {
-        var result = window.eval(command);
-        if (result != undefined) {
-            this.echo(String(result));
-        }
-    }
-}, {
-    greetings: 'Terminal 2',
-    name: 'terminal2',
-    height: 200,
-    width: 450,
-    prompt: 'terminal2> '
-});
-
-
-$(function() {
-    var frameInterval = 60 * 1000 // sends a tip every 2 min
-    function tips() {
-      var tips = [
-        "[[b;#0d1c0e;#ffffff] Tip ■ use the up ( ▲ ) or down ( ▼ ) keys to view your message history. ]"
-    ]
-
-        $('#terminal').terminal().echo(tips[0]);
-
-        setTimeout(tips, frameInterval);
-    }
-    
-
-    // Start the game loop
-    tips();
-    
-  });
-
-  
+	$('#terminal2').terminal(function(command) {
+	this.echo("hello world!")
+	}, {
+			greetings: 'Terminal 2',
+			name: 'terminal2',
+			height: 200,
+			width: 450,
+			prompt: 'terminal2> '
+	});
