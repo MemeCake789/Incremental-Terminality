@@ -78,28 +78,6 @@ function animateFrames(frames, speed, loopCount, endText) {
     printFrame();
   }
 
-  function updateTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    let period = 'AM';
-
-    if (hours >= 12) {
-        period = 'PM';
-        if (hours > 12) {
-            hours -= 12;
-        }
-    } else if (hours === 0) {
-        hours = 12;
-    }
-
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-
-    const timeString = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds} ${period}`;
-    document.getElementById('time').textContent = timeString;
-}
-
-setInterval(updateTime, 1000);
   
   
   
@@ -543,12 +521,4 @@ Compiling Data: ▌██████████▐ 100%`,
 
 });
 
-	$('#terminal2').terminal(function(command) {
-	this.echo("hello world!")
-	}, {
-			greetings: 'Terminal 2',
-			name: 'terminal2',
-			height: 200,
-			width: 450,
-			prompt: 'terminal2> '
-	});
+	

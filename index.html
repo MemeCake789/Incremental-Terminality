@@ -146,16 +146,16 @@
 				let terminalVisible = false;
 				function toggleTerminal() {
 					const terminal = $('#terminal');
-					const terminal2 = $('#terminal2');
+					const stats = $('#stats');
 					if (terminalVisible) {
-						terminal2.hide();
+						stats.hide();
 						terminal.show();
-						document.getElementById("stats").textContent = "STATS/";
+						document.getElementById("statsBtn").textContent = "STATS/";
 					}
 					else {
 						terminal.hide();
-						terminal2.show();
-						document.getElementById("stats").textContent = "Back";
+						stats.show();
+						document.getElementById("statsBtn").textContent = "Back";
 						
 					}
 					terminalVisible = !terminalVisible;
@@ -177,10 +177,10 @@
     <div id="terminal">
 	    <script src="main.js"></script>
     </div>
-		<div id="terminal2">
+		<div id="stats">
 			<script src="main.js"></script>
 		</div>
-	<button id="stats" onclick="toggleTerminal()" >
+	<button id="statsBtn" onclick="toggleTerminal()" >
 		STATS/
 	</button>
 </body>

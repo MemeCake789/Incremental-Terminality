@@ -186,11 +186,11 @@ header {
     
 	}
 
-#terminal2{
+#stats-terminal{
 	display: none;
 }
 
-  .terminal, .terminal2{
+  .terminal, .stats{
 		margin-top: 50px;
 	}
 
