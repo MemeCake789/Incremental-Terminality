@@ -521,10 +521,21 @@ Compiling Data: ▌██████████▐ 100%`,
 
 });
 
+$(function() {
+	var frameInterval = 100; // sends a tip every 100 milliseconds
+
+	function stats() {
+		$('#stats').terminal().echo("hello");
+		setTimeout(stats, frameInterval);
+	}
+	// Start the game loop
+	stats();
+});
+
 $('#stats').terminal({
-	// Add your stats-related commands here
+
 }, {
 	greetings: 'Stats Terminal',
 	prompt: 'stats> '
 });
-	
+
