@@ -186,9 +186,7 @@ header {
     
 	}
 
-#stats-terminal{
-	display: none;
-}
+
 
   .terminal, .stats{
 		margin-top: 50px;
@@ -204,5 +202,9 @@ button {
 }
 button:hover {
 	background-color: #555555;
+}
+
+#stats {
+	display: none;
 }
 

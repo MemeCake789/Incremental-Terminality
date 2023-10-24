@@ -521,4 +521,10 @@ Compiling Data: ▌██████████▐ 100%`,
 
 });
 
+$('#stats').terminal({
+	// Add your stats-related commands here
+}, {
+	greetings: 'Stats Terminal',
+	prompt: 'stats> '
+});
 	
