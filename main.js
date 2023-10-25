@@ -522,10 +522,10 @@ Compiling Data: ▌██████████▐ 100%`,
 });
 
 $(function() {
-	var frameInterval = 100; // sends a tip every 100 milliseconds
+	var frameInterval = 1000; // sends a tip every 100 milliseconds
 
 	function stats() {
-		$('#stats').terminal().echo("hello");
+		$('#stats').terminal().echo(":D");
 		setTimeout(stats, frameInterval);
 	}
 	// Start the game loop
