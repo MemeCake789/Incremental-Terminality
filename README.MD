@@ -1,4 +1,4 @@
-
+#  \textcolor{red}{WARNING: GAME IS STILL IN DEVELOPMENT PHASE, ALL DATA WILL NOT SAVE AND GAME IS STILL INCOMPLETE!}
 
 ```
      ______   ______   ____     __  ___   ____   _   __   ___      __      ____  ______  __
