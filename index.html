@@ -39,12 +39,10 @@
       padding: 5px;
       background-color: #222;
       color: #eee;
-      autocomplete: off;
     }
 
-    /* Remove focus border */
     input:focus {
-      outline: none; /* Remove default outline */
+      outline: none; 
     }
   </style>
 </head>
@@ -52,7 +50,7 @@
   <div id="terminal-container">
     <pre id="terminal-output"></pre>
     <div class="command-input">
-      <input type="text" id="command-input" placeholder="$ main/users/anonymous>">
+      <input type="text" id="command-input" placeholder="$ main/users/anonymous>"  autocomplete: "off">
     </div>
   </div>
 
