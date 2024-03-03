@@ -1,188 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-	<meta http-equiv="content-type"content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/animation.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Terminal</title>
+    <style>
+        /* Basic styling for the terminal */
+        body {
+            font-family: monospace;
+            background-color: #222;
+            color: #eee;
+        }
+        #terminal-container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            overflow-y: scroll;
+        }
+        .command-input {
+            margin-top: 10px;
+        }
+    </style>
 </head>
-
-
 <body>
-
-    <!--me no like stakblitz anymore >:(-->
-      
-      
-    <!--ascii art for greeting
-    other style:
-  ______    ______    ____     __  ___    ____    _   __    ___     __    ____  ________  __     ______   ______   ____     __  ___   ____   _   __   ___      __      ____  ______  __
- /_  __/   / ____/   / __ \   /  |/  /   /  _/   / | / /   /   |   / /   /  _/ /_  __/\ \/ /   /_  __/  / ____/  / __ \   /  |/  /  /  _/  / | / /  /   |    / /     /  _/ /_  __/  \ \
-  / /     / __/     / /_/ /  / /|_/ /    / /    /  |/ /   / /| |  / /    / /    / /    \  /     / /    / __/    / /_/ /  / /|_/ /   / /   /  |/ /  / /| |   / /      / /    / /      > \ 
- / /     / /___    / _, _/  / /  / /   _/ /    / /|  /   / ___ | / /   _/ /    / /      / /     / /    / /___   / _, _/  / /  / /   / /   / /|  /  / ___ |  / /___  _/ /    / /      / ^ \ 
-/_/     /_____/   /_/ |_|  /_/  /_/   /___/   /_/ |_/   /_/  |_|/_/   /___/   /_/      /_/     /_/    /_____/  /_/ |_| /_/  /_/   /_/   /_/ |_/  /_/  |_| /_____/ /___/   /_/      /_/ \_\
-
-    -->
-
-    <header>
-      <div id="title">Terminalitʎ</div>
-      <div id="random-message"></div>
-      <div id="time-date"></div>
-    </header>
-
-    <header class="bar">
-      <div id="variables"></div>
-    </header>
-
-      <script src="main.js"></script>
-      
-      <script>
-        var messages = [
-              "@Terminalitʎ_news: Welcome to Terminalitʎ!",
-              "@Terminalitʎ_news: In recent news, the CEO of Terminalitʎ ( MemeCake ) has been in the news. He is a very nice guy and he is very happy to be here. (TOTALY FROM A REAL PERSON AND NOT AI GENERATED)",
-              "@Terminalitʎ_news: The founder of FaceBook is under fire after deploying freddy fazebear in Michigan",
-              "@Terminalitʎ_news: Today marks the 10 year aniversary of the day that NFT became useless!",
-              "@Terminalitʎ_news: Reaserchers in the carriebiean claim to have found the infamous ONE-PIECE, reporters shocked.",
-              "@Terminalitʎ_news: MemeCake issues a new app, OnlyTerminal which is like OnlyFans but for terminals.",
-              "@Terminalitʎ_news: Daycare teacher under arrest after storing fentanyl underneath a carpet. ( This actually happened in real life, look it up)",
-              "@Terminalitʎ_news: MemeCake has been arrested for possession of a firearm and is being held in a jail for 12 hours. ( these ai generated messages are wild like i didn't even do that )",
-              "@Terminalitʎ_news: Terminalitʎ employee gets sued after calling MemeCake a poopy butt dumb ass caca popo shithead."	,
-              "@Terminalitʎ_stock: ▲ DOW | 100.00 | + 2.4% ▲",
-              "@Terminalitʎ_stock: ▼ FOX | 67.04 | - 1.7% ▼",
-              "@Terminalitʎ_stock: ▲ AAPL | 129.17 | + 1.1% ▲",
-              "@Terminalitʎ_stock: ▲ TSLA | 43.77 | + 0.1% ▲",
-              "@Terminalitʎ_stock: ▲ MSFT | 19.92 | + 9.1% ▲",
-              "@Terminalitʎ_stock: ▼ AMZN | 26.41 | - 7.3% ▼",
-              "@Terminalitʎ_stock: ▲ GOOGL | 161.07 | + 6.6% ▲",
-              "@Terminalitʎ_stock: ▼ NFLX | 14.27 | - 8.1% ▼",
-              "@Terminalitʎ_stock: ▲ NIO | 79.03 | + 2.5% ▲",
-              "@Terminalitʎ_stock: ▲ DIS | 69.87 | + 7.3% ▲",
-              "@Terminalitʎ_stock: ▲ TSLA | 1.17 | + 1.6%",
-              "@Terminalitʎ_stock: ▼ MSFT | 149.34 | - 8.4% ▼",
-              "@Terminalitʎ_stock: ▲ AMZN | 56.87 | + 7.2% ▲",
-              "@Terminalitʎ_stock: ▲ GOOGL | 19.67 | + 8.4% ▲",
-              "@Terminalitʎ_stock: ▲ NFLX | 14.27 | + 8.1% ▲",
-              "@Terminalitʎ_stock: ▲ NIO | 79.03 | + 2.5% ▲",
-              "@Terminalitʎ_stock: ▲ DIS | 69.87 | + 7.3% ▲",
-              "@Terminalitʎ_stock: ▲ TSLA | 1.17 | + 1.6%",
-              "@Terminalitʎ_stock: ▼ MSFT | 149.34 | - 8.4% ▼",
-              "@Terminalitʎ_stock: ▲ AMZN | 56.87 | + 7.2% ▲",
-              "@Terminalitʎ_stock: ▲ GOOGL | 19.67 | + 8.4% ▲",
-
-            ];
-
-        // Function to display a random message
-        function displayRandomMessage() {
-        var randomIndex = Math.floor(Math.random() * messages.length);
-        var message = messages[randomIndex];
-        var randomMessageElement = document.getElementById("random-message");
-        randomMessageElement.style.animation = "exit 0.5s ease-in-out";
-        setTimeout(function() {
-        randomMessageElement.textContent = message;
-        randomMessageElement.style.animation = "slide-in 0.5s ease-in-out";
-      }, 500);
-    }
-    
-        // Initial display of random message
-        displayRandomMessage();
-    
-        // Update random message every 10 seconds
-        setInterval(displayRandomMessage, 10000);
-    
-        // Function to display the current time and date
-        function displayTimeDate() {
-          var now = new Date();
-          var hours = now.getHours();
-          var minutes = now.getMinutes();
-          var ampm = hours >= 12 ? 'PM' : 'AM';
-          hours = hours % 12;
-          hours = hours ? hours : 12;
-          minutes = minutes < 10 ? '0' + minutes : minutes;
-          var time = hours + ':' + minutes + ' ' + ampm;
-          var date = now.toLocaleDateString();
-          document.getElementById("time-date").textContent = time + " - " + date + " - ";
-        }
-    
-        // Initial display of time and date
-        displayTimeDate();
-    
-        // Update time and date every second
-        setInterval(displayTimeDate, 1000);
-
-        // Function to display the current year, month, and day
-        function displayVariables() {
-
-        
-          let varString = "";
-        
-          // Loop through displayVars array
-          for(let i = 0; i < displayVars.length; i++) {
-          
-            // Add variable to string
-            let varName = displayVars[i];
-            varString += varName + ": " + window[varName] + " ";
-          
-          }
-        
-
-        
-        
-          document.getElementById("variables").textContent = varString;
-        }
-      
-        // Initial display of variables
-        displayVariables();
-
-
-
-        // Update variables every second
-        setInterval(displayVariables, 500);
-				let terminalVisible = false;
-				function toggleTerminal() {
-					const terminal = $('#terminal');
-					const stats = $('#stats');
-					if (terminalVisible) {
-						stats.hide();
-						terminal.show();
-						document.getElementById("statsBtn").textContent = "STATS/";
-					}
-					else {
-						terminal.hide();
-						stats.show();
-						document.getElementById("statsBtn").textContent = "Back";
-						
-					}
-					terminalVisible = !terminalVisible;
-				}
-      </script>
-
-    <template id="greetings">
-    IncrementalShell version 0.0.1 
-    (c) copyright MemeCake (not really). All rights reserved 2023
-    
-     ______   ______   ____     __  ___   ____   _   __   ___      __      ____  ______  __
-    /_  __/  / ____/  / __ \   /  |/  /  /  _/  / | / /  /   |    / /     /  _/ /_  __/  \ \
-     / /    / __/    / /_/ /  / /|_/ /   / /   /  |/ /  / /| |   / /      / /    / /      > \ 
-    / /    / /___   / _, _/  / /  / /  _/ /   / /|  /  / ___ |  / /___  _/ /    / /      / ^ \ 
-   /_/    /_____/  /_/ |_|  /_/  /_/  /___/  /_/ |_/  /_/  |_| /_____/ /___/   /_/      /_/ \_\
-
-    </template>
-
-    <div id="terminal">
-	    <script src="main.js"></script>
+    <div id="terminal-container">
+        <pre id="terminal-output"></pre>
     </div>
-		<div id="stats">
-			<script src="main.js"></script>
-		</div>
-	<button id="statsBtn" onclick="toggleTerminal()" >
-		STATS/
-	</button>
-</body>
+    <div class="command-input">
+        <input type="text" id="command-input" placeholder="Enter command">
+    </div>
+    <script>
+        class Terminal {
+            constructor(outputElement) {
+                this.outputElement = outputElement;
+            }
 
+            echo(text) {
+                this.outputElement.textContent += `${text}\n`;
+            }
+        }
+
+        const terminalOutput = document.getElementById("terminal-output");
+        const commandInput = document.getElementById("command-input");
+        const terminal = new Terminal(terminalOutput);
+
+        commandInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                const command = commandInput.value.trim();
+                terminal.echo(`$ ${command}`); // Display the entered command
+
+                try {
+                    // Basic command evaluation (replace with your actual command logic)
+                    if (command === "echo hey") {
+                        terminal.echo("hey");
+                    } else {
+                        terminal.echo("Unknown command");
+                    }
+                } catch (error) {
+                    terminal.echo("Error: " + error.message);
+                }
+
+                commandInput.value = "";
+            }
+        });
+    </script>
+</body>
 </html>
