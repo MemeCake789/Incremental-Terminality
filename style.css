@@ -1,0 +1,49 @@
+body {
+    background-color: #222;
+    color: #eee;
+        font-family: Input;
+
+    
+  }
+
+/*style="font-family: Input;"*/
+
+  #terminal-container {
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid #555;
+    border-radius: 5px;
+    /* Added: remove scrollbar */
+    overflow: hidden;
+    font-family: Input;
+  }
+
+  #terminal-output{
+    margin: 1rem;
+    font-family: Input;
+
+  }
+  @font-face {
+    font-family: Input;
+    src: url(fonts/Input-Regular_\(InputMonoNarrow-Regular\).ttf);
+}
+
+  .command-input {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Remove suggestion/history */
+  input {
+    width: 100%;
+    padding: 5px;
+    background-color: #222;
+    color: #eee;
+    font-family: Input;
+
+
+  }
+
+  input:focus {
+    outline: none; 
+  }
