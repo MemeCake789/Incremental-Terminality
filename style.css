@@ -1,7 +1,30 @@
+:root {
+  
+  --red:    #e82337;
+  --orange: #fa6735;
+  --yellow: #fff57a;
+  --green:  #8de35d;
+  --blue:   #4c89ee;
+  --purple: #4837c7;
+  --violet: #f43a3a;
+
+  --black:  #040519;
+  --grey:   #555555;
+  --white:  #ffffff;
+
+  --back:   #181818;
+  --text:   #ebebeb;
+  --error:  #ff0000;
+
+ }
+
+p{
+  margin: 200;
+}
 body {
-    background-color: #222;
-    color: #eee;
-        font-family: Input;
+    background-color: var(--back);
+    color: var(--text);
+    font-family: Input;
 
     
   }
@@ -11,7 +34,7 @@ body {
   #terminal-container {
     width: 800px;
     margin: 0 auto;
-    border: 1px solid #555;
+    border: 1px solid var(--grey);
     border-radius: 5px;
     /* Added: remove scrollbar */
     overflow: hidden;
@@ -36,9 +59,9 @@ body {
   /* Remove suggestion/history */
   input {
     width: 100%;
-    padding: 5px;
-    background-color: #222;
-    color: #eee;
+    padding: 10px;
+    background-color: var(--back);
+    color: var(--text);
     font-family: Input;
 
 
@@ -47,3 +70,4 @@ body {
   input:focus {
     outline: none; 
   }
+
