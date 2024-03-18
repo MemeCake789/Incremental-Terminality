@@ -1,3 +1,4 @@
+var data = 0;
 class Commands {
   constructor() {
     this.commands = {
@@ -13,6 +14,11 @@ class Commands {
         term.echo(text)
       },
 
+      dat: function(){
+         frames = ['Frame 1', 'Frame 2', 'Frame 3', 'Frame 4'];
+
+         term.animate(frames, 1000) 
+      }
       // Add more commands as needed
     };
   }
@@ -28,18 +34,58 @@ class Commands {
       term.echo(`term: ${commandName} command not found, for list of commands, type "help" `);
     }
   }
+  
 }
 
 class Terminal {
   constructor(outputElement, inputElement) {
     this.out = outputElement;
     this.in = inputElement;
+
+
+    this.colors = {
+    red:    "#e82337",
+    orange: "#fa6735",
+    yellow: "#fff57a",
+    green:  "#8de35d",
+    blue:   "#4c89ee",
+    purple: "#4837c7",
+    violet: "#f43a3a",
+
+    black:  "#040519",
+    grey:   "#555555",
+    white:  "#ffffff",
+
+    back:   "#181818",
+    text:   "#ebebeb",
+    error:  "#ff0000",
+    }
+
   }
 
   echo(text) {
     const paragraph = document.createElement("p");
     paragraph.textContent = text;
     this.out.appendChild(paragraph);
+  }
+
+  animate(frames, time) {
+    this.echo(null)
+
+    return new Promise((resolve) => {
+      let currentFrame = 0;
+      const targetElement = term.out.children[term.out.children.length - 1];
+  
+      const interval = setInterval(() => {
+        targetElement.innerHTML = frames[currentFrame];
+        currentFrame++;
+  
+        if (currentFrame === frames.length) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, time);
+    });
   }
 }
 
@@ -59,11 +105,9 @@ terminalInput.addEventListener("keydown", (event) => {
     const commandName = commandParts[0];
     const params = commandParts.slice(1);                // Extract parameters from index 1 onwards
 
-    cmds.evaluateCommand(commandName, ...params);
+    cmds.evaluateCommand(commandName, ...params);        
 
     terminalInput.value = "";
   }
 });
 
-// Inspect Element Bookmarklet For when in working in school
-javascript:(function () {     var script =  document.createElement('script');    script.src="//cdn.jsdelivr.net/npm/eruda";     document.body.appendChild(script);    script.onload = function () {         eruda.init()     } })();
