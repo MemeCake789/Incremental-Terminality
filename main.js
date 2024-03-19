@@ -1,4 +1,8 @@
 var data = 0;
+var dataPerCmd = 1
+
+
+
 class Commands {
   constructor() {
     this.commands = {
@@ -15,216 +19,319 @@ class Commands {
       },
 
       dat: function(){
-        const rndmFile = ["fix.md", "sound.js", "lock.js"]
-        var num = "54 MB"
+        var randFile = function() {
+          var items = [
+            "terminal-color-scheme-editor.css",
+            "command-history-viewer.js",
+            "intelligent-tab-completion.py",
+            "shell-scripting-tutorial.md",
+            "keyboard-shortcuts-customizer.html",
+            "terminal-icon-pack.jsx",
+            "directory-navigation-enhancer.rb",
+            "command-alias-manager.json",
+            "terminal-appearance-customizer.swift",
+            "multi-clipboard-manager.cs",
+            "terminal-multiplexer-application.java",
+            "command-autocomplete-engine.ts",
+            "terminal-emulator-core.go",
+            "shell-integration-toolkit.py",
+            "terminal-color-scheme-gallery.php",
+            "command-parser-interpreter.js",
+            "terminal-settings-configurator.md",
+            "file-permissions-visualizer.html",
+            "terminal-profile-manager.jsx",
+            "command-execution-tracer.rb",
+            "terminal-utility-collection.json",
+            "secure-file-transfer-client.swift",
+            "terminal-keybinding-customizer.cs",
+            "shell-extension-framework.java",
+            "terminal-window-manager.ts",
+            "command-search-accelerator.go",
+            "terminal-font-installer.py",
+            "shell-prompt-designer.php",
+            "terminal-hotkey-configurator.js",
+            "command-logging-analyzer.md",
+            "terminal-notification-center.html",
+            "shell-variable-explorer.jsx",
+            "terminal-theme-creator.rb",
+            "command-suggestion-engine.json",
+            "terminal-plugin-manager.swift",
+            "shell-function-library.cs",
+            "terminal-appearance-tweaker.java",
+            "command-runner-automator.ts",
+            "shell-scripting-debugger.go",
+            "terminal-tab-manager.py",
+            "command-editor-enhancements.php",
+            "terminal-layout-designer.js",
+            "shell-command-reference.md",
+            "terminal-shortcut-customizer.html",
+            "command-highlighting-beautifier.jsx",
+            "terminal-pane-organizer.rb",
+            "shell-debugging-toolkit.json",
+            "terminal-transparency-controller.swift",
+            "command-formatting-stylizer.cs",
+            "terminal-session-manager.java",
+            "shell-wildcard-explorer.ts",
+            "terminal-scrolling-optimizer.go",
+            "command-argument-parser.py",
+            "terminal-profile-synchronizer.php",
+            "shell-scripting-boilerplate.js",
+            "terminal-keymap-designer.md",
+            "command-piping-visualizer.html",
+            "terminal-gesture-controller.jsx",
+            "shell-environment-configurator.rb",
+            "terminal-customization-wizard.json",
+            "command-substitution-enhancer.swift",
+            "terminal-color-palette-editor.cs",
+            "shell-scripting-linter.java",
+            "terminal-performance-monitor.ts",
+            "command-chaining-helper.go",
+            "terminal-cursor-customizer.py",
+            "shell-scripting-template.php",
+            "terminal-search-accelerator.js",
+            "command-history-analyzer.md",
+            "terminal-styling-sandbox.html",
+            "shell-scripting-playground.jsx",
+            "terminal-pane-splitting-tool.rb",
+            "command-trigger-manager.json",
+            "terminal-font-previewer.swift",
+            "shell-scripting-refactorer.cs",
+            "terminal-snapshot-manager.java",
+            "command-alias-organizer.ts",
+            "terminal-scripting-framework.go",
+            "shell-scripting-boilerplate.py",
+            "terminal-snippet-library.php",
+            "command-completion-enhancer.js",
+            "terminal-tool-collection.md",
+            "shell-scripting-cheatsheet.html",
+            "terminal-plugin-explorer.jsx",
+            "command-expansion-analyzer.rb",
+            "terminal-scripting-sandbox.json",
+            "shell-scripting-formatter.swift",
+            "terminal-theme-customizer.cs",
+            "command-execution-tracker.java",
+            "terminal-macro-recorder.ts",
+            "shell-scripting-optimizer.go"
+          ]
+
+          const randItem = Math.floor(Math.random() * items.length);
+
+          return items[randItem]
+
+        }
+        var space = `${dataPerCmd} KB`
         var frames = [
-`⠋ Allocating Storage - | ${num} | `, 
-`⠙ Allocating Storage - | ${num} |`,
-`⠹ Allocating Storage - | ${num} |`,
-`⠸ Allocating Storage - | ${num} |`,
-`⠼ Allocating Storage - | ${num} |`,
-`⠴ Allocating Storage - | ${num} |`,
-`⠦ Allocating Storage - | ${num} |`,
-`⠧ Allocating Storage - | ${num} |`,
-`⠇ Allocating Storage - | ${num} |`,
-`⠏ Allocating Storage - | ${num} |`,
-`⠋ Connecting to root node - | ${num} |`,
-`⠙ Connecting to root node - | ${num} |`,
-`⠹ Connecting to root node - | ${num} |`,
-`⠸ Connecting to root node - | ${num} |`,
-`⠼ Connecting to root node - | ${num} |`,
-`⠴ Connecting to root node - | ${num} |`,
-`⠦ Connecting to root node - | ${num} |`,
-`⠧ Connecting to root node - | ${num} |`,
-`⠇ Connecting to root node - | ${num} |`,
-`⠏ Connecting to root node - | ${num} |`,
+`⠋ Allocating Storage - | ${space} | `, 
+`⠙ Allocating Storage - | ${space} |`,
+`⠹ Allocating Storage - | ${space} |`,
+`⠸ Allocating Storage - | ${space} |`,
+`⠼ Allocating Storage - | ${space} |`,
+`⠴ Allocating Storage - | ${space} |`,
+`⠦ Allocating Storage - | ${space} |`,
+`⠧ Allocating Storage - | ${space} |`,
+`⠇ Allocating Storage - | ${space} |`,
+`⠏ Allocating Storage - | ${space} |`,
+`⠋ Connecting to root node - | ${space} |`,
+`⠙ Connecting to root node - | ${space} |`,
+`⠹ Connecting to root node - | ${space} |`,
+`⠸ Connecting to root node - | ${space} |`,
+`⠼ Connecting to root node - | ${space} |`,
+`⠴ Connecting to root node - | ${space} |`,
+`⠦ Connecting to root node - | ${space} |`,
+`⠧ Connecting to root node - | ${space} |`,
+`⠇ Connecting to root node - | ${space} |`,
+`⠏ Connecting to root node - | ${space} |`,
 
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-⠋ Downloading file - | ${rndmFile} |`, 
-`✓ Collected data - | ${num} |
+⠋ Downloading file(s) - | ${randFile()} |`, 
+`✓ Collected data - | ${space} |
 
-⠙ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠙ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠹ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠹ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠸ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠸ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠼ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠼ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠴ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠴ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠦ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠦ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠧ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠧ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠇ Downloading file - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠇ Downloading file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠏ Downloading file - | ${rndmFile} |`,
+⠏ Downloading file(s) - | ${randFile()} |`,
 
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-⠋ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠋ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠙ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠙ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠹ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠹ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠸ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠸ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠼ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠼ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠴ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠴ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠦ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠦ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠧ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠧ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠇ Decompressing files - | ${rndmFile} |`,
-`✓ Collected data - | ${num} |
+⠇ Decompressing file(s) - | ${randFile()} |`,
+`✓ Collected data - | ${space} |
 
-⠏ Decompressing files - | ${rndmFile} |`,
+⠏ Decompressing file(s) - | ${randFile()} |`,
 
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌          ▐ 00%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌          ▐ 05%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌█         ▐ 10%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌█         ▐ 15%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██        ▐ 20%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██        ▐ 25%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌███       ▐ 30%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌███       ▐ 35%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌████      ▐ 40%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌████      ▐ 45%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌█████     ▐ 50%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌█████     ▐ 55%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██████    ▐ 60%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██████    ▐ 65%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌███████   ▐ 70%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌███████   ▐ 75%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌████████  ▐ 80%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌████████  ▐ 85%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌█████████ ▐ 90%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌█████████ ▐ 95%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
-
-Compiling: ▌██████████▐ 100%`,
-`✓ Collected data - | ${num} |
-
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██████████▐ 100%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██████████▐ 100%`,
-`✓ Collected data - | ${num} |
+`✓ Collected data - | ${space} |
 
-✓ Added file - | ${rndmFile} |
+✓ Added file(s) - | ${randFile()} |
+
+Compiling: ▌██████████▐ 100%`,
+`✓ Collected data - | ${space} |
+
+✓ Added file(s) - | ${randFile()} |
 
 Compiling: ▌██████████▐ 100%`,
 
         ];
 
          term.animate(frames, 50) 
+
+         data += 1
+
+         this.echo(`Allocated ${dataPerCmd} of data, new storage ${data}`)
       }
       // Add more commands as needed
     };
