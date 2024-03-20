@@ -16,6 +16,7 @@ class Commands {
 
       echo: function(text){
         term.echo(text)
+        console.log(`echoed "${text}" to term`)
       },
 
       dat: function(){
@@ -327,11 +328,18 @@ Compiling: ▌██████████▐ 100%`,
 
         ];
 
-         term.animate(frames, 50) 
+        term.animate(frames, 50)
+        .then(() => { // Code to run after promise is resolved
 
-         data += 1
+          data += 1;
+          this.echo(`Allocated ${dataPerCmd} of data, new storage ${data}`);
+        
+        })
+        .catch((error) => {
 
-         this.echo(`Allocated ${dataPerCmd} of data, new storage ${data}`)
+          console.error('Error:', error);
+        
+        });
       }
       // Add more commands as needed
     };
@@ -381,6 +389,7 @@ class Terminal {
     const paragraph = document.createElement("p");
     paragraph.textContent = text;
     this.out.appendChild(paragraph);
+    
   }
 
   animate(frames, time) {
