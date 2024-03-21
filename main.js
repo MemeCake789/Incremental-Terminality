@@ -65,7 +65,7 @@ class Terminal {
         this.echo(`Error: ${error.message}`);// displays the actual javascript error message
       }
     } else {
-      this.echo(`@${this.name}: ${commandName} command not found, for list of commands, type "help" `);
+      this.echo(`@${this.name}: command "${commandName}" not found, for list of commands, type "help" `);
     }
   }
   
@@ -417,8 +417,10 @@ Compiling: ▌██████████▐ 100%`,
       });
     },
 
-    name: "main",
-  } 
+  }, 
+
+  name: "main",
+
 });
 
 const upgrades = new Terminal({
@@ -433,7 +435,9 @@ const upgrades = new Terminal({
       upgrades.echo(this.outA+this.outB)
     },
 
-  } 
+  },
+
+  name: "upgrades"
 });
 
 
