@@ -30,6 +30,27 @@ body {
   }
 
 /*style="font-family: Input;"*/
+  
+#upgrade-container {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+  /* Added: remove scrollbar */
+  overflow: hidden;
+  font-family: Input;
+}
+
+#upgrade-output{
+  margin: 1rem;
+  font-family: Input;
+
+}
+
+.upgrade-input {
+  width: 100%;
+  margin-top: 10px;
+}
 
   #terminal-container {
     width: 800px;
@@ -46,15 +67,16 @@ body {
     font-family: Input;
 
   }
-  @font-face {
-    font-family: Input;
-    src: url(fonts/Input-Regular_\(InputMonoNarrow-Regular\).ttf);
-}
-
+ 
   .command-input {
     width: 100%;
     margin-top: 10px;
   }
+
+  @font-face {
+    font-family: Input;
+    src: url(fonts/Input-Regular_\(InputMonoNarrow-Regular\).ttf);
+}
 
   /* Remove suggestion/history */
   input {
