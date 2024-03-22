@@ -1,4 +1,4 @@
-# To-Do List
+To-Do List
 
 [x] Find out how to have the "dat" command display result after animation ( create a promise? )
 
@@ -9,9 +9,12 @@
 [ ] Create an upgrade system
 - [x] have a separate window for it
 - [x] have a class for it
-- [ ] each item has a set of upgrades and a condition for it (have a function and return true if something is met )
+- [1/2] each item has a set of upgrades and a condition for it (have a function and return true if something is met )
 
-[ ] a way to display multiple tabs/terminals ( for upgrades and other stuff )
+[x] a way to display multiple tabs/terminals ( for upgrades and other stuff )
 
 [ ] A way to format text with colors 
 
+[ ] Create a stats terminal
+
+[ ] Store animations in a json file

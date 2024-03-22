@@ -406,7 +406,7 @@ Compiling: ▌██████████▐ 100%`,
       term.animate(frames, 50)
       .then(() => { // Code to run after promise is resolved
 
-        data += 1;
+        data += dataPerCmd;
         this.echo(`Allocated ${dataPerCmd} of data, new storage ${data}`);
       
       })
@@ -435,21 +435,43 @@ const upgrades = new Terminal({
       upgrades.echo(this.outA+this.outB)
     },
 
+    upgrade: function(name) {
+      if (upgrades.dat.hasOwnProperty(name)) {
+      try {
+        return upgrades.dat[name].run();
+      } catch (error) {
+        this.echo(`Error: ${error.message}`);// displays the actual javascript error message
+      }
+    } else {
+      this.echo(`@${this.name}: could not find upgrade "${name}"`);
+    }
+
+    }
+
   },
 
-  name: "upgrades"
+  name: "upgrades",
+
 });
 
+upgrades.dat = {
+  DATA1 : {
+    description : "Impove data collection ( dat command gain to 2kb )",
+    run: function() {
+      dataPerCmd += 1
+    }
+  }
+
+}
 
 terminalInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     const command = terminalInput.value.trim();
     term.echo(`$ main/users/anonymous> ${command}`);     // Display the entered command
 
-    // Improved command parsing:
-    const commandParts = command.split(/\s+/); // Split on whitespace (multiple spaces)
+    const commandParts = command.split(/\s+/);           // Split on whitespace (multiple spaces)
     const commandName = commandParts[0];
-    const params = commandParts.slice(1);      // Extract parameters from index 1 onwards
+    const params = commandParts.slice(1);                // Extract parameters from index 1 onwards
 
     term.evaluateCommand(commandName, ...params);        
 
@@ -460,12 +482,11 @@ terminalInput.addEventListener("keydown", (event) => {
 upgradeInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     const command = upgradeInput.value.trim();
-    upgrades.echo(`$ main/users/anonymous> ${command}`);     // Display the entered command
+    upgrades.echo(`$ main/users/anonymous> ${command}`); // Display the entered command
 
-    // Improved command parsing:
-    const commandParts = command.split(/\s+/); // Split on whitespace (multiple spaces)
+    const commandParts = command.split(/\s+/);           // Split on whitespace (multiple spaces)
     const commandName = commandParts[0];
-    const params = commandParts.slice(1);      // Extract parameters from index 1 onwards
+    const params = commandParts.slice(1);                // Extract parameters from index 1 onwards
 
     upgrades.evaluateCommand(commandName, ...params);        
 
