@@ -91,7 +91,7 @@ const term = new Terminal({
 
     echo: function(text){
       term.echo(text)
-      console.log(`echoed "${text}" to term`)
+      // console.log(`echoed "${text}" to term`)
     },
 
     dat: function(){
@@ -427,42 +427,39 @@ const upgrades = new Terminal({
   inputElement: upgradeInput,
   outputElement: upgradeOutput,
   commands: {
-    sum: function(a, b) {
-
-      this.outA = parseInt(a) 
-      this.outB = parseInt(b)
-
-      upgrades.echo(this.outA+this.outB)
+    check: function() {
+                                                        // Iterate over each upgrade in upgrades.dat
+      for (const upgradeKey in upgrades.dat) {
+        const upgrade = upgrades.dat[upgradeKey];
+        
+                                                        // Call the condition function and check if it returns true
+        if (upgrade.condition()) {
+                                                        // If the condition is met, execute the run function
+          upgrade.run();
+        }
+      }
     },
 
-    upgrade: function(name) {
-      if (upgrades.dat.hasOwnProperty(name)) {
-      try {
-        return upgrades.dat[name].run();
-      } catch (error) {
-        this.echo(`Error: ${error.message}`);// displays the actual javascript error message
-      }
-    } else {
-      this.echo(`@${this.name}: could not find upgrade "${name}"`);
-    }
-
-    }
-
+    // ... (other functions)
   },
 
   name: "upgrades",
-
 });
 
 upgrades.dat = {
-  DATA1 : {
-    description : "Impove data collection ( dat command gain to 2kb )",
+  DATA1: {
+    description: "Improve data collection (dat command gain to 2kb)",
+    condition: () => {
+      
+      return data >= 2; 
+    },
     run: function() {
-      dataPerCmd += 1
+      term.echo("reached")  
     }
   }
 
-}
+// Add more upgrades here...
+};
 
 terminalInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
@@ -493,3 +490,14 @@ upgradeInput.addEventListener("keydown", (event) => {
     upgradeInput.value = "";
   }
 });
+
+// Main loop
+
+function main() {
+                                                         // Call the check function every second (10 miliseconsd prob beter)
+  setInterval(() => {
+    upgrades.commands.check()
+  }, 1000);
+}
+
+main();

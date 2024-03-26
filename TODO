@@ -4,12 +4,12 @@ To-Do List
 
 [ ] Disable the input when a command is running
 
-[ ] find out how to check variables for upgrades and stuff
+[x] find out how to check variables for upgrades and stuff
 
-[ ] Create an upgrade system
+[x] Create an upgrade system
 - [x] have a separate window for it
 - [x] have a class for it
-- [1/2] each item has a set of upgrades and a condition for it (have a function and return true if something is met )
+- [x] each item has a set of upgrades and a condition for it (have a function and return true if something is met )
 
 [x] a way to display multiple tabs/terminals ( for upgrades and other stuff )
 
