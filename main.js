@@ -33,7 +33,7 @@ class Terminal {
 
   echo(text) {
     const paragraph = document.createElement("p");
-    paragraph.textContent = text;
+    paragraph.innerHTML = text;
     this.out.appendChild(paragraph);
     
   }
@@ -65,7 +65,7 @@ class Terminal {
         this.echo(`Error: ${error.message}`);// displays the actual javascript error message
       }
     } else {
-      this.echo(`@${this.name}: command "${commandName}" not found, for list of commands, type "help" `);
+      this.echo(`<span style="color:${term.colors.error}">@${this.name}: command "${commandName}" not found, for list of commands, type "help"</span> `);
     }
   }
   
@@ -89,9 +89,11 @@ const term = new Terminal({
       term.echo(this.outA+this.outB)
     },
 
-    echo: function(text){
-      term.echo(text)
-      // console.log(`echoed "${text}" to term`)
+    test: function(){
+      term.echo('This is regular text');
+      term.echo(`This is <span style="color:${term.colors.blue}">blue text</span>', 'This is <span style="color:blue">blue text</span>
+      cool`);
+      term.echo('This is <span style="color:red">red text</span> with <span style="font-weight:bold">bold</span>', 'This is <span style="color:red">red text</span> with <span style="font-weight:bold">bold</span>');
     },
 
     dat: function(){
@@ -407,7 +409,7 @@ Compiling: ▌██████████▐ 100%`,
       .then(() => { // Code to run after promise is resolved
 
         data += dataPerCmd;
-        this.echo(`Allocated ${dataPerCmd} of data, new storage ${data}`);
+        term.echo(`Allocated ${dataPerCmd} of data, new storage ${data}`);
       
       })
       .catch((error) => {
