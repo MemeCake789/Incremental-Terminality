@@ -78,7 +78,6 @@ body {
     src: url(fonts/Input-Regular_\(InputMonoNarrow-Regular\).ttf);
 }
 
-  /* Remove suggestion/history */
   input {
     width: 100%;
     padding: 10px;
@@ -93,3 +92,86 @@ body {
     outline: none; 
   }
 
+  body {
+    font-size: 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  #container #dock {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #container #dock ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #container #dock li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+  }
+  
+  #container {
+    backdrop-filter: blur(5px);
+    position: fixed;
+    bottom: 20px; /* Add some bottom margin */
+    text-align: center;
+    right: 25%;
+    left: 25%;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px 15px 0 0;
+    padding: 10px 0; /* Add top and bottom padding */
+    transition: all 0.3s;
+
+  }
+
+  #container:hover{
+    transition: all 0.3s;
+    right: 22.5%;
+    left: 22.5%;
+    width: 55%;
+  }
+  
+  #container li img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s;
+    border-radius: 10px;
+  }
+  
+  #container li:hover img {
+    transform: scale(2);
+    margin: 0 2em;
+  }
+  
+  #container li:hover+li img,
+  #container li.prev img {
+    transform: scale(1.5);
+    margin: 0 1.5em;
+  }
+  
+  #container li span {
+    display: none;
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    background-color: #222;
+    padding: 4px 0;
+    border-radius: 7px;
+  }
+  
+  #container li:hover span {
+    display: block;
+    color: #fff;
+  }

@@ -13,8 +13,10 @@ To-Do List
 
 [x] a way to display multiple tabs/terminals ( for upgrades and other stuff )
 
-[ ] A way to format text with colors 
+[x] A way to format text with colors 
 
 [ ] Create a stats terminal
 
-[ ] Store animations in a json file
+[ ] Store animations in a json 
+
+[ ] Add additonal styles to navbar
