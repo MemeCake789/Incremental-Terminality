@@ -21,11 +21,11 @@
 p{
   margin: 200;
 }
+
 body {
     background-color: var(--back);
     color: var(--text);
     font-family: Input;
-
     
   }
 
@@ -92,13 +92,7 @@ body {
     outline: none; 
   }
 
-  body {
-    font-size: 15px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
+
   
   #container #dock {
     width: 100%;
@@ -124,40 +118,42 @@ body {
   #container {
     backdrop-filter: blur(5px);
     position: fixed;
-    bottom: 20px; /* Add some bottom margin */
+    bottom: 20px;
     text-align: center;
     right: 25%;
     left: 25%;
     width: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px 15px 0 0;
-    padding: 10px 0; /* Add top and bottom padding */
+    background: rgba(255, 255, 255, 0.031);
+    padding: 10px 0;
     transition: all 0.3s;
-
+    border: 1px solid transparent;
+    border-radius: 15px;
+    border-color:#ffffff00;
   }
-
-  #container:hover{
+  
+  #container:hover {
     transition: all 0.3s;
     right: 22.5%;
     left: 22.5%;
     width: 55%;
+    border-color:#ffffff;
   }
   
   #container li img {
     width: 50px;
     height: 50px;
     transition: all 0.3s;
-    border-radius: 10px;
   }
   
   #container li:hover img {
-    transform: scale(2);
+    transform: translateY(-22px) scale(2);
     margin: 0 2em;
   }
   
-  #container li:hover+li img,
+  #container li:hover + li img,
   #container li.prev img {
-    transform: scale(1.5);
+    
+    transform: translateY(-10px) scale(1.5);
     margin: 0 1.5em;
   }
   
@@ -174,4 +170,11 @@ body {
   #container li:hover span {
     display: block;
     color: #fff;
+    transform: translateY(-22px)
   }
+
+img{
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+
+}
