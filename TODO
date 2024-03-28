@@ -19,4 +19,8 @@ To-Do List
 
 [ ] Store animations in a json 
 
-[ ] Add additonal styles to navbar
+[x] Add additonal styles to navbar
+
+[ ] Size navbar with css
+
+[ ] Have Navbar items open specified tab (terminal tab, upgrades tab)
