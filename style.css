@@ -39,6 +39,7 @@ body {
   /* Added: remove scrollbar */
   overflow: hidden;
   font-family: Input;
+  background-color: #0f0f0f;
 }
 
 #upgrade-output{
@@ -58,19 +59,22 @@ body {
     border: 1px solid var(--grey);
     border-radius: 5px;
     /* Added: remove scrollbar */
-    overflow: hidden;
+    overflow:scroll;
     font-family: Input;
+    background-color: #0f0f0f;
   }
 
   #terminal-output{
     margin: 1rem;
     font-family: Input;
+    background-color: #0f0f0f;
 
   }
  
   .command-input {
     width: 100%;
     margin-top: 10px;
+    background-color: #0f0f0f;
   }
 
   @font-face {
@@ -84,7 +88,7 @@ body {
     background-color: var(--back);
     color: var(--text);
     font-family: Input;
-
+    background-color: #0f0f0f;
 
   }
 

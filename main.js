@@ -494,6 +494,20 @@ upgradeInput.addEventListener("keydown", (event) => {
 });
 
 // Main loop
+function setup() { 
+  term.echo(`
+  <span style="color:${term.colors.blue}">,--------.  </span>| 
+  <span style="color:${term.colors.blue}">||""""""||  </span>| [^_^] : Hello! Welcome to Terminalitʎ!
+  <span style="color:${term.colors.blue}">|| ^ _^ ||  </span>| [?_?] : If your new to the game or are unshure on how to use 
+  <span style="color:${term.colors.blue}">||______||  </span>| a terminal, type "tutorial" in the text box below 🡳
+  <span style="color:${term.colors.blue}">'--------'  </span>| [^_^] : If not, then start by running the command "help" 
+  <span style="color:${term.colors.blue}"> _/____\\_  </span> | to see what commands to run!
+  <span style="color:${term.colors.blue}">[_o__===_]  </span>|
+  
+`);
+}
+
+setup()
 
 function main() {
                                                          // Call the check function every second (10 miliseconsd prob beter)
