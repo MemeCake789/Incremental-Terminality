@@ -7,11 +7,23 @@
   <link rel="stylesheet" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
 </head>
 <body>
+  <div class="upgrade-container">
+    <h1 class="upgrade-title">Upgrade Name :: Upgrade Cost</h1>
+    <p class="upgrade-comment">"Upgrade comment Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+    <p class="upgrade-description"> Upgrade description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum faucibus sollicitudin tellus vel gravida. Etiam tristique quam mauris, at dignissim velit elementum eget.</p>
+    <p class="buy-text">Buy command: </p>
+    <div class="UpgradeCommand" style="width: 600px; height: 40px; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px; background: white; border-radius: 5px; overflow: hidden; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+      <div class="UpgradeCommand" style="width: 540px; height: 15px; color: black; font-size: 10px; font-family: JetBrains Mono; font-weight: 400; word-wrap: break-word">upgrade DAT1</div>
+      <img class="CopyButton" style="width: 25px; height: 25px" src="https://via.placeholder.com/25x25" />
+    </div>
+
+
+  </div>
   <div id="terminal-container">
     <pre id="terminal-output"></pre>
     <div class="command-input">
@@ -31,7 +43,7 @@
       <ul>
 				<li>
           <span>Terminal</span> <a href="#"><img src=
-          "images/terminalApp.png"></a>
+          "images/terminalApp.png" onclick="term.setActiveDisplay()"></a>
         </li>
         <li>
           <span>Upgrades</span> <a href="#"><img src=

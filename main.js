@@ -1,10 +1,13 @@
 var data = 0;
 var dataPerCmd = 1
+var apps = [
+
+]
 
 
 class Terminal {
-  constructor({outputElement, inputElement, commands, name}) {
-
+  constructor({container, outputElement, inputElement, commands, name}) {
+    this.contain = container;
     this.out = outputElement;
     this.in = inputElement;
     this.commands = commands;
@@ -26,6 +29,8 @@ class Terminal {
     text:   "#ebebeb",
     error:  "#ff0000",
     };
+
+    apps.push()
 
   }
 
@@ -68,26 +73,36 @@ class Terminal {
       this.echo(`<span style="color:${term.colors.error}">@${this.name}: command "${commandName}" not found, for list of commands, type "help"</span> `);
     }
   }
+
+  hide(){
+    this.contain.style.display = "none"
+  }
+
+  show(){
+    this.contain.style.display = "block"
+  }
+
+  setActiveDisplay(){
+    
+  }
   
 }
 
+const terminalContainer = document.getElementById("terminal-container");
 const terminalOutput = document.getElementById("terminal-output");
 const terminalInput = document.getElementById("command-input");
 
+const upgradeContainer = document.getElementById("upgrade-container")
 const upgradeOutput = document.getElementById("upgrade-output");
 const upgradeInput = document.getElementById("upgrade-input");
 
+
+
 const term = new Terminal({
+  container: terminalContainer,
   inputElement: terminalInput,
   outputElement: terminalOutput,
   commands: {
-    sum: function(a, b) {
-
-      this.outA = parseInt(a) 
-      this.outB = parseInt(b)
-
-      term.echo(this.outA+this.outB)
-    },
 
     test: function(){
       term.echo('This is regular text');
@@ -426,6 +441,7 @@ Compiling: ▌██████████▐ 100%`,
 });
 
 const upgrades = new Terminal({
+  container: upgradeContainer,
   inputElement: upgradeInput,
   outputElement: upgradeOutput,
   commands: {
@@ -505,6 +521,8 @@ function setup() {
   <span style="color:${term.colors.blue}">[_o__===_]  </span>|
   
 `);
+
+  upgrades.hide()
 }
 
 setup()

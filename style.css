@@ -53,29 +53,31 @@ body {
   margin-top: 10px;
 }
 
-  #terminal-container {
-    width: 800px;
-    margin: 0 auto;
-    border: 1px solid var(--grey);
-    border-radius: 5px;
-    /* Added: remove scrollbar */
-    overflow:scroll;
-    font-family: Input;
-    background-color: #0f0f0f;
-  }
+#terminal-container {
+  height: 450px;
+  width: 97%;
+  margin: 30px auto;
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+  overflow: auto;
+  font-family: Input;
+  background-color: #0f0f0f;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;  
+  flex-direction: column;  
+}
 
-  #terminal-output{
-    margin: 1rem;
-    font-family: Input;
-    background-color: #0f0f0f;
+#terminal-output {
+  margin: 1rem;
+  font-family: Input;
+  background-color: #0f0f0f;
+  flex-grow: 1;  
+}
 
-  }
- 
-  .command-input {
-    width: 100%;
-    margin-top: 10px;
-    background-color: #0f0f0f;
-  }
+.command-input {
+  width: 100%;
+  background-color: #0f0f0f;
+}
 
   @font-face {
     font-family: Input;
@@ -89,6 +91,7 @@ body {
     color: var(--text);
     font-family: Input;
     background-color: #0f0f0f;
+    bottom: 0px;
 
   }
 
@@ -97,13 +100,15 @@ body {
   }
 
 
-  
+/* Navbar */
+
   #container #dock {
     width: 100%;
     text-align: center;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    
   }
   
   #container #dock ul {
@@ -122,44 +127,42 @@ body {
   #container {
     backdrop-filter: blur(5px);
     position: fixed;
-    bottom: 20px;
+    bottom: 4%;
     text-align: center;
-    right: 25%;
-    left: 25%;
-    width: 50%;
-    background: rgba(255, 255, 255, 0.031);
+    right: 30%;
+    left: 30%;
+    width: 40%;
+    background: rgba(42, 42, 42, 0.653);
     padding: 10px 0;
     transition: all 0.3s;
     border: 1px solid transparent;
     border-radius: 15px;
     border-color:#ffffff00;
-  }
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; 
+   }
   
   #container:hover {
     transition: all 0.3s;
-    right: 22.5%;
-    left: 22.5%;
-    width: 55%;
+    right: 27.5%;
+    left: 27.5%;
+    width: 45%;
     border-color:#ffffff;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   }
   
   #container li img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     transition: all 0.3s;
   }
   
   #container li:hover img {
     transform: translateY(-22px) scale(2);
     margin: 0 2em;
+    
   }
   
-  #container li:hover + li img,
-  #container li.prev img {
-    
-    transform: translateY(-10px) scale(1.5);
-    margin: 0 1.5em;
-  }
+
   
   #container li span {
     display: none;
@@ -180,5 +183,51 @@ body {
 img{
   backdrop-filter: blur(10px);
   border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.upgrade-container {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px 30px 10px 10px; /* top-left, top-right, bottom-right, bottom-left */
+  color: #040519;
+}
 
+.upgrade-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.upgrade-comment{
+  font-size: 10px;
+  color: #555555;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.upgrade-description {
+  font-size: 10px;
+  margin-bottom: 15px;
+}
+
+.buy-text{
+  font-size: 10px;
+  margin: 5px;
+}
+
+.upgrade-command{
+  background-color: #555555;
+  padding: 5px;
+}
+
+.command{
+
+}
+
+.copy-button{
+  position: absolute;
+  right: 0;  
 }

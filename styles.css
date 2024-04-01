@@ -1,0 +1,30 @@
+
+.e31_34 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:1464px;
+	height:70px;
+	border-radius: 10px;
+	position:absolute;
+}
+.e14_8 { 
+	color:rgba(0, 0, 0, 1);
+	width:1400px;
+	height:50px;
+	position:absolute;
+	left:10px;
+	top:10px;
+	font-family:JetBrains Mono;
+	text-align:left;
+	font-size:1000px;
+	letter-spacing:0;
+}
+.e14_10 { 
+	width:44px;
+	height:44px;
+	position:absolute;
+	left:1410px;
+	top:13px;
+	background-image:url(images/copy_button.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
