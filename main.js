@@ -30,7 +30,7 @@ class Terminal {
     error:  "#ff0000",
     };
 
-    apps.push()
+    apps.push(this)
 
   }
 
@@ -79,11 +79,21 @@ class Terminal {
   }
 
   show(){
-    this.contain.style.display = "block"
+    this.contain.style.display = "flex"
   }
 
-  setActiveDisplay(){
-    
+  setActiveDisplay() {
+
+    this.show(); // Show the current instance
+
+    apps.forEach((app) => {
+
+        if (app !== this) {
+          app.hide(); // Call the 'hide' method for other instances
+
+        }
+      
+    });
   }
   
 }
@@ -95,7 +105,6 @@ const terminalInput = document.getElementById("command-input");
 const upgradeContainer = document.getElementById("upgrade-container")
 const upgradeOutput = document.getElementById("upgrade-output");
 const upgradeInput = document.getElementById("upgrade-input");
-
 
 
 const term = new Terminal({
@@ -212,7 +221,7 @@ const term = new Terminal({
         return items[randItem]
 
       }
-      var space = `${dataPerCmd} KB`
+      var space = dataPerCmd + " KB"
       var frames = [
 `⠋ Allocating Storage - | ${space} | `, 
 `⠙ Allocating Storage - | ${space} |`,
@@ -510,7 +519,8 @@ upgradeInput.addEventListener("keydown", (event) => {
 });
 
 // Main loop
-function setup() { 
+function setup() {
+  term.setActiveDisplay() 
   term.echo(`
   <span style="color:${term.colors.blue}">,--------.  </span>| 
   <span style="color:${term.colors.blue}">||""""""||  </span>| [^_^] : Hello! Welcome to Terminalitʎ!
@@ -522,16 +532,12 @@ function setup() {
   
 `);
 
-  upgrades.hide()
 }
 
 setup()
 
 function main() {
-                                                         // Call the check function every second (10 miliseconsd prob beter)
-  setInterval(() => {
-    upgrades.commands.check()
-  }, 1000);
+
 }
 
 main();

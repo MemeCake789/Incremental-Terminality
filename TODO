@@ -21,6 +21,8 @@ To-Do List
 
 [x] Add additonal styles to navbar
 
-[ ] Size navbar with css
+[x] Size navbar with css
 
-[ ] Have Navbar items open specified tab (terminal tab, upgrades tab)
+[x] Have Navbar items open specified tab (terminal tab, upgrades tab)
+
+[ ] Incorparate new idea for upgrade tab
